@@ -3,110 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>แบบทดสอบวิเคราะห์และออกแบบระบบ (System Analysis & Design)</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>ควิซโต้ตอบ การวิเคราะห์และออกแบบระบบ (80 ข้อ)</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Sarabun', sans-serif;
-        }
+        body { font-family: 'Sarabun', sans-serif; }
     </style>
 </head>
-<body class="bg-slate-100 text-slate-800 min-h-screen py-6 px-3 sm:px-6 flex justify-center items-start">
-
-    <div class="w-full max-w-3xl bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200/80 my-2 md:my-6">
+<body class="bg-slate-100 text-slate-800 min-h-screen py-6 px-3 sm:px-6">
+    <div class="max-w-3xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200">
         
         <!-- Header -->
-        <header class="bg-gradient-to-r from-indigo-700 via-indigo-600 to-violet-600 text-white p-6 relative">
-            <div class="relative z-10">
-                <span class="inline-block px-3 py-1 bg-white/20 text-xs font-semibold rounded-full mb-2 backdrop-blur-sm">Interactive Assessment</span>
-                <h1 class="text-2xl sm:text-3xl font-bold tracking-tight">วิเคราะห์และออกแบบระบบ</h1>
-                <p class="text-indigo-100 text-xs sm:text-sm mt-1">System Analysis & Design (40 ข้อ) - เฉลยทันทีพร้อมคำอธิบาย</p>
-            </div>
-            <div class="absolute -right-8 -bottom-8 w-32 h-32 bg-white/10 rounded-full blur-xl pointer-events-none"></div>
+        <header class="bg-indigo-600 text-white p-6 text-center shadow-md">
+            <h1 class="text-xl sm:text-2xl font-bold mb-1">แบบทดสอบวิเคราะห์และออกแบบระบบ</h1>
+            <p class="text-indigo-100 text-xs sm:text-sm font-light">System Analysis and Design (รวม 80 ข้อ แบ่งเป็น 2 ชุด)</p>
         </header>
 
-        <div id="quiz-container" class="p-4 sm:p-8">
+        <div id="quiz-app" class="p-4 sm:p-8">
             
-            <!-- Welcome Screen -->
-            <div id="welcome-screen" class="text-center py-8 px-2">
-                <div class="w-20 h-20 bg-indigo-50 text-indigo-600 rounded-2xl mx-auto flex items-center justify-center mb-6 shadow-inner">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                </div>
-                <h2 class="text-2xl font-bold text-slate-800 mb-3">ยินดีต้อนรับสู่แบบทดสอบ</h2>
-                <p class="text-slate-600 mb-8 max-w-md mx-auto text-sm sm:text-base leading-relaxed">
-                    ทดสอบความรู้ 40 ข้อเกี่ยวกับ SDLC, DFD, ERD, การทดสอบระบบ และการเลือกใช้เทคโนโลยี เมื่อกดตอบในแต่ละข้อ ระบบจะแสดงเฉลยและเหตุผลประกอบทันที
+            <!-- Welcome / Set Selection Screen -->
+            <div id="welcome-screen" class="text-center py-6">
+                <h2 class="text-xl font-bold text-slate-900 mb-3">ยินดีต้อนรับสู่ระบบควิซโต้ตอบ</h2>
+                <p class="text-slate-600 mb-8 text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
+                    เลือกลองทำแบบทดสอบที่คุณต้องการ โดยเมื่อกดเลือกตอบในแต่ละข้อ ระบบจะทำการเฉลยทันทีพร้อมอธิบายเหตุผลอย่างละเอียด
                 </p>
-                <button onclick="startQuiz()" class="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-8 py-3.5 rounded-xl shadow-lg shadow-indigo-200 transition duration-200 active:scale-95">
-                    เริ่มทำแบบทดสอบ
-                </button>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl mx-auto mb-8">
+                    <!-- Set 1 Card -->
+                    <div class="border-2 border-indigo-100 bg-indigo-50/50 hover:border-indigo-500 rounded-xl p-5 text-left transition cursor-pointer flex flex-col justify-between shadow-sm hover:shadow-md" onclick="selectSet(1)">
+                        <div>
+                            <span class="inline-block bg-indigo-600 text-white text-xs font-semibold px-2.5 py-1 rounded-full mb-3">ชุดที่ 1</span>
+                            <h3 class="font-bold text-slate-900 text-base mb-1">การวิเคราะห์และออกแบบระบบเชิงลึก</h3>
+                            <p class="text-xs text-slate-500 mb-4">40 ข้อ • โจทย์ประยุกต์ สถานการณ์จำลอง และตรรกะเชิงลึก</p>
+                        </div>
+                        <button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 rounded-lg text-sm transition">
+                            เริ่มทำชุดที่ 1
+                        </button>
+                    </div>
+
+                    <!-- Set 2 Card -->
+                    <div class="border-2 border-emerald-100 bg-emerald-50/50 hover:border-emerald-500 rounded-xl p-5 text-left transition cursor-pointer flex flex-col justify-between shadow-sm hover:shadow-md" onclick="selectSet(2)">
+                        <div>
+                            <span class="inline-block bg-emerald-600 text-white text-xs font-semibold px-2.5 py-1 rounded-full mb-3">ชุดที่ 2</span>
+                            <h3 class="font-bold text-slate-900 text-base mb-1">การวิเคราะห์และพัฒนาระบบสารสนเทศ</h3>
+                            <p class="text-xs text-slate-500 mb-4">40 ข้อ • แนวทฤษฎีพื้นฐาน SDLC, DFD, ERD และ Flowchart</p>
+                        </div>
+                        <button class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-2 rounded-lg text-sm transition">
+                            เริ่มทำชุดที่ 2
+                        </button>
+                    </div>
+                </div>
             </div>
 
-            <!-- Question Screen -->
+            <!-- Quiz Screen -->
             <div id="question-screen" class="hidden">
-                <!-- Progress bar and score -->
-                <div class="mb-6">
-                    <div class="flex justify-between items-center mb-2 text-xs sm:text-sm font-semibold">
-                        <span id="progress-indicator" class="text-slate-600">ข้อที่ 1 / 40</span>
-                        <span id="score-counter" class="text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full border border-indigo-100">คะแนนสะสม: 0</span>
-                    </div>
-                    <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
-                        <div id="progress-bar" class="bg-indigo-600 h-2.5 transition-all duration-300 ease-out" style="width: 2.5%"></div>
-                    </div>
+                <!-- Top Status Bar -->
+                <div class="flex flex-wrap justify-between items-center gap-2 mb-4 text-xs sm:text-sm font-semibold text-slate-500">
+                    <span id="set-indicator" class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full font-bold">ชุดที่ 1</span>
+                    <span id="progress-text">ข้อ 1 / 40</span>
+                    <span id="score-text" class="text-emerald-600 font-bold">คะแนน: 0</span>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="w-full bg-slate-200 h-2.5 rounded-full mb-6 overflow-hidden">
+                    <div id="progress-bar" class="bg-indigo-600 h-full w-0 transition-all duration-300"></div>
                 </div>
 
                 <!-- Question Text -->
-                <div class="bg-slate-50 p-4 sm:p-5 rounded-xl border border-slate-200/60 mb-6">
-                    <h2 id="question-text" class="text-base sm:text-lg font-bold text-slate-800 leading-snug"></h2>
-                </div>
-                
-                <!-- Options -->
+                <h2 id="question-text" class="text-base sm:text-lg font-bold text-slate-900 mb-6 leading-snug"></h2>
+
+                <!-- Options List -->
                 <div id="options-container" class="space-y-3 mb-6"></div>
 
-                <!-- Rationale Card (Hidden by default) -->
-                <div id="rationale-box" class="hidden p-4 sm:p-5 rounded-xl border mb-6 transition-all duration-300">
-                    <div class="flex items-center space-x-2 font-bold mb-2 text-sm sm:text-base" id="rationale-title">
-                        <!-- Dynamic Icon and Title -->
-                    </div>
-                    <p id="rationale-text" class="text-slate-700 text-xs sm:text-sm leading-relaxed"></p>
+                <!-- Rationale Box -->
+                <div id="rationale-box" class="hidden mb-6 p-4 rounded-xl border leading-relaxed text-sm">
+                    <div class="font-bold mb-1 flex items-center gap-2" id="rationale-title"></div>
+                    <div id="rationale-text" class="text-slate-700"></div>
                 </div>
 
-                <!-- Navigation Controls -->
+                <!-- Navigation Bar -->
                 <div class="flex justify-between items-center pt-4 border-t border-slate-100">
-                    <button id="prev-btn" onclick="prevQuestion()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold px-5 py-2.5 rounded-xl transition duration-200 hidden text-sm">
-                        ย้อนกลับ
+                    <button id="prev-btn" onclick="prevQuestion()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-medium px-4 py-2 rounded-lg text-sm transition hidden">
+                        ข้อก่อนหน้า
                     </button>
-                    <div class="ml-auto">
-                        <button id="next-btn" onclick="nextQuestion()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-6 py-2.5 rounded-xl shadow-md transition duration-200 text-sm active:scale-95">
-                            ถัดไป
+                    <div class="ml-auto flex gap-2">
+                        <button id="next-btn" onclick="nextQuestion()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-6 py-2 rounded-lg text-sm transition opacity-50 cursor-not-allowed" disabled>
+                            ข้อถัดไป
                         </button>
                     </div>
                 </div>
             </div>
 
             <!-- Result Screen -->
-            <div id="result-screen" class="hidden text-center py-8">
-                <div class="w-24 h-24 bg-indigo-50 text-indigo-600 rounded-3xl mx-auto flex items-center justify-center mb-6 shadow-inner">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                    </svg>
+            <div id="result-screen" class="hidden text-center py-6">
+                <div class="inline-block p-4 rounded-full bg-indigo-50 text-indigo-600 mb-3">
+                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 </div>
-                <h2 class="text-2xl sm:text-3xl font-bold text-slate-800 mb-2">สรุปผลคะแนนของคุณ</h2>
-                <p class="text-slate-500 text-sm mb-6">คุณได้ทำแบบทดสอบวิเคราะห์และออกแบบระบบครบถ้วนแล้ว</p>
+                <h2 class="text-2xl font-bold text-slate-900 mb-1">สรุปผลคะแนน</h2>
+                <p id="result-subtitle" class="text-slate-500 text-sm mb-4">แบบทดสอบชุดที่ 1</p>
+                
+                <div class="text-5xl font-extrabold text-indigo-600 mb-2" id="final-score">0 / 40</div>
+                <div class="text-sm font-semibold text-slate-600 mb-6" id="final-percentage">คิดเป็น 0%</div>
+                
+                <p id="result-message" class="text-slate-700 mb-8 max-w-md mx-auto text-sm sm:text-base bg-slate-50 p-4 rounded-xl border border-slate-200 leading-relaxed"></p>
 
-                <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-6 mb-8 max-w-sm mx-auto">
-                    <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-1">คะแนนรวมที่ได้</span>
-                    <div class="text-5xl font-black text-indigo-600 mb-2" id="final-score">0/40</div>
-                    <div id="score-percent" class="inline-block px-3 py-1 bg-indigo-100 text-indigo-700 text-xs font-bold rounded-full">0%</div>
+                <div class="flex flex-col sm:flex-row justify-center gap-3 max-w-md mx-auto">
+                    <button id="retry-btn" onclick="restartCurrentSet()" class="w-full bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold py-3 px-6 rounded-xl transition text-sm">
+                        ทำชุดนี้อีกครั้ง
+                    </button>
+                    <button id="next-set-btn" onclick="switchSet()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-xl transition text-sm shadow-md">
+                        ไปทำชุดถัดไป
+                    </button>
                 </div>
-
-                <div id="result-evaluation" class="p-4 rounded-xl mb-8 text-sm font-medium leading-relaxed max-w-md mx-auto"></div>
-
-                <button onclick="restartQuiz()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-8 py-3.5 rounded-xl shadow-lg shadow-indigo-200 transition duration-200 active:scale-95">
-                    ทำแบบทดสอบอีกครั้ง
+                
+                <button onclick="goHome()" class="mt-6 text-indigo-600 hover:underline text-xs font-semibold inline-block">
+                    ← กลับสู่หน้าหลักเลือกชุดข้อสอบ
                 </button>
             </div>
 
@@ -114,525 +125,888 @@
     </div>
 
     <script>
-        const quizData = [
-            {
-                question: "1. หากองค์กรขนาดใหญ่แห่งหนึ่งกำลังพัฒนาระบบที่มีความซับซ้อนสูงมาก มีการเปลี่ยนแปลงข้อกำหนดบ่อยครั้ง และมีความเสี่ยงสูงในเรื่องเทคโนโลยี ทีมพัฒนาควรเลือกใช้โมเดล SDLC ในข้อใดจึงจะเหมาะสมที่สุดเพื่อบริหารจัดการความเสี่ยงในแต่ละรอบการพัฒนา?",
-                options: [
-                    { text: "Waterfall Model", isCorrect: false },
-                    { text: "Spiral Model", isCorrect: true },
-                    { text: "Adapted Waterfall Model", isCorrect: false },
-                    { text: "Incremental Model", isCorrect: false }
-                ],
-                rationale: "Spiral Model เป็นวงจรพัฒนาซอฟต์แวร์ที่เน้นเรื่องการวิเคราะห์และประเมินความเสี่ยง (Risk Analysis) ในทุกๆ รอบ (Spiral) จึงเหมาะที่สุดสำหรับโครงการขนาดใหญ่ มีความซับซ้อน และมีความเสี่ยงทางเทคโนโลยีสูง"
+        // Quiz Data - Set 1 & Set 2
+        const quizSets = {
+            1: {
+                title: "ชุดที่ 1: การวิเคราะห์และออกแบบระบบเชิงลึก",
+                questions: [
+                    {
+                        question: "1. หากองค์กรขนาดใหญ่แห่งหนึ่งกำลังพัฒนาระบบที่มีความซับซ้อนสูงมาก มีการเปลี่ยนแปลงข้อกำหนดบ่อยครั้ง และมีความเสี่ยงสูงในเรื่องเทคโนโลยี ทีมพัฒนาควรเลือกใช้โมเดล SDLC ในข้อใดจึงจะเหมาะสมที่สุดเพื่อบริหารจัดการความเสี่ยงในแต่ละรอบการพัฒนา?",
+                        options: [
+                            { text: "ก. Waterfall Model", isCorrect: false, rationale: "Waterfall เหมาะกับระบบที่ข้อกำหนดชัดเจน ไม่รองรับการย้อนกลับไปแก้ไขข้อกำหนดบ่อยครั้ง" },
+                            { text: "ข. Spiral Model", isCorrect: true, rationale: "ถูกต้อง! Spiral Model เน้นการวิเคราะห์ความเสี่ยง (Risk Analysis) ในทุกๆ รอบของการพัฒนา เหมาะกับโครงการที่มีความซับซ้อนและความเสี่ยงสูง" },
+                            { text: "ค. Adapted Waterfall Model", isCorrect: false, rationale: "ยังคงมีความยืดหยุ่นน้อยกว่าเมื่อเทียบกับ Spiral Model" },
+                            { text: "ง. Incremental Model", isCorrect: false, rationale: "เน้นการแบ่งส่งมอบเป็นส่วนๆ แต่ไม่ได้เน้นการวิเคราะห์ความเสี่ยงเป็นหลักเหมือน Spiral Model" }
+                        ]
+                    },
+                    {
+                        question: "2. ในขั้นตอนการศึกษาความเป็นไปได้ (Feasibility Study) หากนักวิเคราะห์ระบบพบว่า ระบบใหม่ที่พัฒนาขึ้นมีต้นทุนการลงทุนสูงมากแต่จะช่วยประหยัดเวลาและเพิ่มผลผลิตให้องค์กรในระยะยาว การประเมินนี้สอดคล้องกับความเป็นไปได้ด้านใดมากที่สุด?",
+                        options: [
+                            { text: "ก. Technical Feasibility", isCorrect: false, rationale: "เกี่ยวกับความพร้อมทางด้านเทคโนโลยี ฮาร์ดแวร์ ซอฟต์แวร์ และทักษะบุคลากร" },
+                            { text: "ข. Operational Feasibility", isCorrect: false, rationale: "เกี่ยวกับความสามารถในการนำระบบไปปฏิบัติงานจริงและการยอมรับของผู้ใช้" },
+                            { text: "ค. Economic Feasibility", isCorrect: true, rationale: "ถูกต้อง! ความเป็นไปได้ทางเศรษฐศาสตร์ เน้นประเมินความคุ้มค่า ต้นทุน และผลประโยชน์ (Cost-Benefit Analysis)" },
+                            { text: "ง. Schedule Feasibility", isCorrect: false, rationale: "เกี่ยวกับกรอบเวลาในการพัฒนาระบบ" }
+                        ]
+                    },
+                    {
+                        question: "3. ข้อใดอธิบายความแตกต่างระหว่าง \"การวิเคราะห์เชิงตรรกะ (Logical Design)\" กับ \"การวิเคราะห์เชิงกายภาพ (Physical Design)\" ได้แม่นยำที่สุด?",
+                        options: [
+                            { text: "ก. Logical Model สนใจว่าระบบต้องทำอะไรบ้างโดยไม่ยึดติดกับเทคโนโลยี ส่วน Physical Model จะระบุรายละเอียดว่าจะทำอย่างไรโดยใช้เทคโนโลยีหรือฮาร์ดแวร์ตัวไหน", isCorrect: true, rationale: "ถูกต้อง! Logical เน้นการทำงานเชิงตรรกะโดยอิสระจากเทคโนโลยี เช่น DFD ส่วน Physical เน้นรายละเอียดทางเทคนิค เช่น Database Schema, UI, Network" },
+                            { text: "ข. Logical Model ใช้สำหรับออกแบบหน้าจอและฐานข้อมูล ส่วน Physical Model ใช้สำหรับวาด DFD", isCorrect: false, rationale: "สลับความหมายกัน DFD เป็น Logical Model ส่วนหน้าจอ/ฐานข้อมูลจริงเป็น Physical Model" },
+                            { text: "ค. Logical Model คือการทำงานของระบบเดิม ส่วน Physical Model คือระบบใหม่", isCorrect: false, rationale: "ไม่ใช่การแบ่งแยกระบบเดิมกับระบบใหม่" },
+                            { text: "ง. Logical Model ขึ้นอยู่กับภาษาโปรแกรมที่ใช้ ส่วน Physical Model เป็นอิสระจากซอฟต์แวร์", isCorrect: false, rationale: "กล่าวสลับกัน Physical Model ต่างหากที่ขึ้นกับเทคโนโลยีและภาษาโปรแกรม" }
+                        ]
+                    },
+                    {
+                        question: "4. ในการรวบรวมความต้องการ (Requirements Gathering) หากนักวิเคราะห์ระบบต้องการศึกษาเอกสาร คู่มือระเบียบปฏิบัติ และรายงานย้อนหลังขององค์กรเพื่อดูโครงสร้างขั้นตอนงานเดิม เครื่องมือหรือเทคนิคใดที่กำลังถูกใช้งาน?",
+                        options: [
+                            { text: "ก. Joint Application Design (JAD)", isCorrect: false, rationale: "เป็นการประชุมระดมความคิดเห็นร่วมกันระหว่างผู้ใช้งานและทีมพัฒนา" },
+                            { text: "ข. Document Analysis (การวิเคราะห์เอกสาร)", isCorrect: true, rationale: "ถูกต้อง! เป็นการศึกษารวบรวมข้อมูลจากคู่มือ แบบฟอร์ม หรือรายงานที่มีอยู่เดิมในองค์กร" },
+                            { text: "ค. Observation", isCorrect: false, rationale: "เป็นการลงพื้นที่สังเกตการณ์การปฏิบัติงานจริง" },
+                            { text: "ง. Questionnaires", isCorrect: false, rationale: "เป็นการรวบรวมข้อมูลโดยใช้แบบสอบถามแจกให้ผู้ใช้จำนวนมาก" }
+                        ]
+                    },
+                    {
+                        question: "5. ข้อใดกล่าวถึงข้อจำกัดหรือข้อเสียของการใช้แผนผังระบบ (System Flowchart) ได้ถูกต้องตามหลักวิชาการ?",
+                        options: [
+                            { text: "ก. สามารถแสดงตรรกะระดับบรรทัดคำสั่งของภาษา PHP ได้อย่างตรงไปตรงมา", isCorrect: false, rationale: "System Flowchart แสดงภาพรวมระบบ ไม่ใช่รายละเอียดระดับโค้ดคำสั่ง" },
+                            { text: "ข. ทุกๆ ขั้นตอนการทำงานจะใช้สัญลักษณ์รูปทรงเดียวกันหมด ทำให้ไม่ทราบว่าขั้นตอนไหนสำคัญกว่ากัน และไม่บอกเหตุผลว่าทำไมต้องปฏิบัติงานตามลำดับนั้น", isCorrect: true, rationale: "ถูกต้อง! เป็นข้อจำกัดหลักของ System Flowchart ที่แสดงขั้นตอนตามลำดับแต่ไม่ได้บอกความสำคัญเชิงลึกหรือเหตุผลของกระบวนการ" },
+                            { text: "ค. เป็นเครื่องมือที่ใช้สื่อสารระหว่างมนุษย์กับเครื่องคอมพิวเตอร์โดยตรง", isCorrect: false, rationale: "ใช้สื่อสารระหว่างมนุษย์ด้วยกัน ไม่ใช่กับเครื่องคอมพิวเตอร์" },
+                            { text: "ง. ไม่สามารถนำไปใช้กับงานขนาดใหญ่ได้เพราะวาดง่ายเกินไป", isCorrect: false, rationale: "สามารถนำไปใช้กับระบบใหญ่ได้ แต่จะมีความซับซ้อนสูง" }
+                        ]
+                    },
+                    {
+                        question: "6. พิจารณาโครงสร้างผังงานแบบทำซ้ำ: หากเงื่อนไขกำหนดให้ \"ทำงานตามคำสั่งภายในลูปก่อน 1 ครั้ง แล้วจึงตรวจสอบเงื่อนไข ถ้าเงื่อนไขเป็นเท็จให้ทำซ้ำต่อ\" โครงสร้างนี้ตรงกับคำสั่งใดในทางปฏิบัติ?",
+                        options: [
+                            { text: "ก. do...while", isCorrect: false, rationale: "do...while จะตรวจสอบเงื่อนไข หากเป็น 'จริง' ถึงจะทำซ้ำต่อ" },
+                            { text: "ข. do...until", isCorrect: true, rationale: "ถูกต้อง! do...until จะทำงานตามคำสั่งก่อน 1 ครั้ง แล้วเช็คเงื่อนไข หากเป็น 'เท็จ' จะวนทำซ้ำไปเรื่อยๆ จนกว่าเงื่อนไขจะเป็นจริง" },
+                            { text: "ค. For Loop", isCorrect: false, rationale: "เป็นการวนซ้ำด้วยจำนวนรอบที่ระบุไว้อย่างแน่นอน" },
+                            { text: "ง. If-Else", isCorrect: false, rationale: "เป็นโครงสร้างการตัดสินใจเลือกทางใดทางหนึ่ง ไม่ใช่การวนซ้ำ" }
+                        ]
+                    },
+                    {
+                        question: "7. ในแผนภาพกระแสข้อมูล (DFD) ตามมาตรฐานของ Yourdon/DeMarco หากพบเส้น Data Flow วิ่งตรงจาก \"External Entity A\" ไปยัง \"External Entity B\" โดยตรง ข้อสรุปใดถูกต้องที่สุด?",
+                        options: [
+                            { text: "ก. ถูกต้องสมบูรณ์เพราะเป็นการสื่อสารระหว่างคนกับคน", isCorrect: false, rationale: "ผิดกฎการวาด DFD" },
+                            { text: "ข. ผิดหลักการ (Invalid) เพราะ External Entity ไม่สามารถส่งข้อมูลหากันได้โดยตรงต้องผ่าน Process", isCorrect: true, rationale: "ถูกต้อง! กฎของ DFD ระบุว่า Entity ภายนอกไม่สามารถส่งข้อมูลหา Entity ภายนอกด้วยกันโดยตรงได้ ต้องผ่าน Process เสมอ" },
+                            { text: "ค. ถูกต้องเฉพาะใน DFD Level 0 เท่านั้น", isCorrect: false, rationale: "ถือว่าผิดหลักการในทุกระดับของ DFD" },
+                            { text: "ง. ผิดหลักการเพราะต้องมี Data Store คั่นกลางเสมอ", isCorrect: false, rationale: "ไม่จำเป็นต้องมี Data Store คั่น แต่ต้องมี Process คั่นกลาง" }
+                        ]
+                    },
+                    {
+                        question: "8. หากกระบวนการ (Process) หมายเลข 3 ใน DFD Level 1 ถูกนำมาแตกระดับย่อยเป็น Child Diagram (DFD Level 2) กระบวนการย่อยภายในไดอะแกรมระดับ 2 นี้ควรมีหมายเลขกำกับอย่างไร?",
+                        options: [
+                            { text: "ก. 1, 2, 3", isCorrect: false, rationale: "เป็นหมายเลขของ DFD Level 1" },
+                            { text: "ข. 3.1, 3.2, 3.3", isCorrect: true, rationale: "ถูกต้อง! การแตกรายละเอียด (Decomposition) ของ Process แม่หมายเลข 3 จะใช้หมายเลขย่อยเป็น 3.1, 3.2, 3.3..." },
+                            { text: "ค. 3A, 3B, 3C", isCorrect: false, rationale: "ไม่ใช่รูปแบบการลงรหัสหมายเลขมาตรฐาน" },
+                            { text: "ง. 2.1, 2.2, 2.3", isCorrect: false, rationale: "เลขหลักต้องเป็น 3 ตามหมายเลขของ Process แม่" }
+                        ]
+                    },
+                    {
+                        question: "9. ในแผนภาพ ER Diagram สัญลักษณ์ \"วงรีเส้นคู่ (Double Ellipse)\" สื่อถึงคุณลักษณะของแอตทริบิวต์ประเภทใด?",
+                        options: [
+                            { text: "ก. Simple Attribute", isCorrect: false, rationale: "ใช้สัญลักษณ์วงรีเส้นเดี่ยวปกติ" },
+                            { text: "ข. Key Attribute", isCorrect: false, rationale: "ใช้สัญลักษณ์วงรีเส้นเดี่ยวที่มีข้อความขีดเส้นใต้" },
+                            { text: "ค. Multi-valued Attribute (แอตทริบิวต์ที่มีได้หลายค่า)", isCorrect: true, rationale: "ถูกต้อง! วงรีเส้นคู่ใช้แทน Multi-valued Attribute เช่น เบอร์โทรศัพท์ ที่มีได้มากกว่า 1 ค่าในเอนติตี้เดียว" },
+                            { text: "ง. Derived Attribute", isCorrect: false, rationale: "ใช้สัญลักษณ์วงรีเส้นประ" }
+                        ]
+                    },
+                    {
+                        question: "10. แอตทริบิวต์ประเภท \"Derived Attribute\" ใน ER Model มีลักษณะการทำงานอย่างไร และใช้สัญลักษณ์ใด?",
+                        options: [
+                            { text: "ก. เป็นข้อมูลที่ได้จากการคำนวณจากแอตทริบิวต์อื่น ใช้สัญลักษณ์วงรีเส้นประ", isCorrect: true, rationale: "ถูกต้อง! Derived Attribute คือค่าที่ได้จากการคำนวณ (เช่น อายุ ที่คำนวณมาจากวันเกิด) สัญลักษณ์คือวงรีเส้นประ" },
+                            { text: "ข. เป็นข้อมูลที่ไม่สามารถแบ่งย่อยได้อีก ใช้สัญลักษณ์วงรีเส้นเดี่ยว", isCorrect: false, rationale: "คือความหมายของ Simple/Atomic Attribute" },
+                            { text: "ค. เป็นคีย์หลัก ใช้สัญลักษณ์วงรีขีดเส้นใต้", isCorrect: false, rationale: "คือความหมายของ Key Attribute" },
+                            { text: "ง. เป็นข้อมูลที่มีหลายค่า ใช้สัญลักษณ์วงรีเส้นคู่", isCorrect: false, rationale: "คือความหมายของ Multi-valued Attribute" }
+                        ]
+                    },
+                    {
+                        question: "11. ข้อใดอธิบายลักษณะของ \"Weak Entity\" (เอนติตี้แบบอ่อน) ใน ER Model ได้ถูกต้องที่สุด?",
+                        options: [
+                            { text: "ก. เอนติตี้ที่ไม่จำเป็นต้องมีคีย์หลัก (Primary Key)", isCorrect: false, rationale: "Weak Entity มี Partial Key แต่ต้องพึ่งพา Primary Key ของ Owner Entity" },
+                            { text: "ข. เอนติตี้ที่ไม่สามารถดำรงอยู่ได้ด้วยตนเอง ต้องอาศัยความสัมพันธ์กับ Strong Entity อื่น", isCorrect: true, rationale: "ถูกต้อง! Weak Entity จะต้องคงู่อยู่โดยพึ่งพิง Strong Entity (Owner Entity) เสมอ" },
+                            { text: "ค. เอนติตี้ที่มีแอตทริบิวต์เป็นแบบ Multi-valued เท่านั้น", isCorrect: false, rationale: "ไม่เกี่ยวข้องกันโดยตรง" },
+                            { text: "ง. เอนติตี้ที่ใช้แทนความสัมพันธ์แบบ M:N", isCorrect: false, rationale: "นั่นคือ Composite หรือ Associative Entity" }
+                        ]
+                    },
+                    {
+                        question: "12. หากต้องการแปลงความสัมพันธ์แบบ Many-to-Many (M:N) ระหว่างสองเอนติตี้ให้กลายเป็นระบบฐานข้อมูลเชิงสัมพันธ์ที่มีประสิทธิภาพ นักวิเคราะห์ระบบมักสร้างสิ่งใดขึ้นมาคั่นกลาง?",
+                        options: [
+                            { text: "ก. Sub-Entity", isCorrect: false, rationale: "ไม่ใช่ตัวคั่นความสัมพันธ์ M:N" },
+                            { text: "ข. Composite Entity (เอนติตี้เชิงความสัมพันธ์)", isCorrect: true, rationale: "ถูกต้อง! สร้าง Composite/Associative Entity ขึ้นมาเพื่อแปลงความสัมพันธ์แบบ M:N ให้กลายเป็น 1:M สองชุด" },
+                            { text: "ค. Derived Attribute", isCorrect: false, rationale: "เป็นแอตทริบิวต์จากการคำนวณ ไม่ใช่เอนติตี้" },
+                            { text: "ง. External Entity", isCorrect: false, rationale: "ใช้ใน DFD ไม่ใช่ใน ER Model" }
+                        ]
+                    },
+                    {
+                        question: "13. ข้อใดคือข้อดีที่เด่นชัดที่สุดของการพัฒนาโปรแกรมขึ้นเองภายในองค์กร (In-House Development)?",
+                        options: [
+                            { text: "ก. ใช้เวลาพัฒนาน้อยมากและต้นทุนต่ำกว่าซื้อโปรแกรมสำเร็จรูป", isCorrect: false, rationale: "In-House ใช้เวลานานและมีต้นทุนการพัฒนาที่สูงกว่า" },
+                            { text: "ข. ตอบสนองความต้องการของผู้ใช้ได้สูงสุดและไม่ต้องกังวลกับค่าปรับปรุงโปรแกรมเพิ่ม", isCorrect: true, rationale: "ถูกต้อง! การพัฒนาระบบเองทำให้ตรงตามขั้นตอนและความต้องการเฉพาะขององค์กรมากที่สุด" },
+                            { text: "ค. ได้เอกสารประกอบระบบที่ได้มาตรฐานสากลทันที", isCorrect: false, rationale: "ขึ้นอยู่กับระเบียบปฏิบัติภายในองค์กร" },
+                            { text: "ง. ไม่จำเป็นต้องมีบุคลากรด้านไอทีประจำองค์กร", isCorrect: false, rationale: "ต้องอาศัยทีมไอทีภายในองค์กรอย่างมาก" }
+                        ]
+                    },
+                    {
+                        question: "14. การเลือกใช้วิธีจัดหาอุปกรณ์ระบบด้วยการ \"เช่า (Rental)\" มีความเหมาะสมที่สุดกับสถานการณ์ใด?",
+                        options: [
+                            { text: "ก. ระบบงานที่ต้องการใช้เทคโนโลยีสูง มีการเปลี่ยนแปลงบ่อย และไม่ต้องการผูกพันกับภาระทรัพย์สินระยะยาว", isCorrect: true, rationale: "ถูกต้อง! การเช่าช่วยลดความเสี่ยงจากการล้าสมัยของเทคโนโลยี และไม่ต้องแบกรับค่าเสื่อมราคา" },
+                            { text: "ข. ระบบงานที่ต้องการความเป็นเจ้าของและใช้งานต่อเนื่องยาวนานเกิน 10 ปี", isCorrect: false, rationale: "กรณีนี้การซื้อขาด (Purchase) จะคุ้มค่ากว่า" },
+                            { text: "ค. ระบบงานขนาดเล็กที่มีงบประมาณจำกัดและต้องการซื้อขาดในครั้งเดียว", isCorrect: false, rationale: "การเช่าไม่ใช่การซื้อขาด" },
+                            { text: "ง. ระบบงานที่ต้องการความปลอดภัยสูงสุดโดยห้ามบุคคลภายนอกเข้าถึง", isCorrect: false, rationale: "ไม่เกี่ยวข้องกันโดยตรง" }
+                        ]
+                    },
+                    {
+                        question: "15. สถาปัตยกรรมเครือข่ายแบบใดที่ภาระงานประมวลผล (Processing Logic) และการจัดเก็บข้อมูลทั้งหมดตกอยู่ที่เครื่องแม่ข่ายขนาดใหญ่ (Host/Mainframe) โดยเครื่องลูกข่ายทำหน้าที่เป็นเพียงจอภาพและคีย์บอร์ด?",
+                        options: [
+                            { text: "ก. File-Server Architecture", isCorrect: false, rationale: "File-Server ทำหน้าที่ส่งไฟล์ให้เครื่อง Client ประมวลผล" },
+                            { text: "ข. Centralized Architecture (Host-Based)", isCorrect: true, rationale: "ถูกต้อง! การรวมศูนย์ประมวลผลที่ Host/Mainframe ส่วนเครื่องลูกเป็นเพียง Dumb Terminal แสดงผล" },
+                            { text: "ค. Client-Server Architecture", isCorrect: false, rationale: "มีการแบ่งภาระงานประมวลผลระหว่าง Client และ Server" },
+                            { text: "ง. Peer-to-Peer Architecture", isCorrect: false, rationale: "ทุกเครื่องในเครือข่ายทำหน้าที่เท่าเทียมกัน" }
+                        ]
+                    },
+                    {
+                        question: "16. เหตุใดในขั้นตอนการออกแบบระบบ จึงกำหนดให้นักวิเคราะห์ระบบต้องออกแบบเอาต์พุต (Output Design) ให้เสร็จสิ้นเสียก่อนที่จะลงมือออกแบบอินพุต (Input Design)?",
+                        options: [
+                            { text: "ก. เพราะรายงานเอาต์พุตจะเป็นตัวกำหนดและชี้ว่าระบบจำเป็นต้องใช้อินพุตข้อมูลใดบ้างมาร่วมประมวลผล", isCorrect: true, rationale: "ถูกต้อง! เอาต์พุตที่ผู้ใช้ต้องการเป็นตัวกำหนดว่า ต้องนำเข้า (Input) ข้อมูลใดบ้างเพื่อใช้ในการประมวลผล" },
+                            { text: "ข. เพราะอินพุตมีความสำคัญน้อยกว่าและมักถูกเปลี่ยนแปลงบ่อย", isCorrect: false, rationale: "อินพุตมีความสำคัญสูงเช่นกัน" },
+                            { text: "ค. เพื่อให้โปรแกรมเมอร์เขียนโค้ดหน้าจออินพุตได้ง่ายขึ้น", isCorrect: false, rationale: "ไม่ใช่เหตุผลทางหลักการออกแบบ" },
+                            { text: "ง. เพราะเป็นมาตรฐานบังคับของฮาร์ดแวร์", isCorrect: false, rationale: "ไม่เกี่ยวกับฮาร์ดแวร์" }
+                        ]
+                    },
+                    {
+                        question: "17. การออกแบบส่วนติดต่อกับผู้ใช้ (User Interface) ที่ดีควรคำนึงถึงสิ่งใดเป็นสำคัญที่สุดเพื่อให้ผู้ใช้เรียนรู้ได้รวดเร็ว?",
+                        options: [
+                            { text: "ก. ใช้ตัวหนังสือภาษาอังกฤษทับศัพท์ทั้งหมดเพื่อความทันสมัย", isCorrect: false, rationale: "ควรใช้ภาษาที่เหมาะสมกับกลุ่มผู้ใช้งาน" },
+                            { text: "ข. ออกแบบให้ใช้งานง่าย สื่อความหมายชัดเจนด้วยข้อความและรูปภาพกราฟิกที่เป็นระบบ", isCorrect: true, rationale: "ถูกต้อง! เน้นหลัก Usability ความเรียบง่าย ชัดเจน สื่อความหมาย และเข้าใจได้ทันที" },
+                            { text: "ค. ซ่อนฟังก์ชันการทำงานที่ซับซ้อนไว้ไม่ให้ผู้ใช้เห็นเลย", isCorrect: false, rationale: "อาจทำให้ผู้ใช้หาฟังก์ชันสำคัญไม่พบ" },
+                            { text: "ง. กำหนดให้ผู้ใช้ต้องพิมพ์คำสั่งแบบ Text-based เสมอ", isCorrect: false, rationale: "ปัจจุบันเน้นสถาปัตยกรรมแบบ GUI ที่เข้าใจง่ายกว่า" }
+                        ]
+                    },
+                    {
+                        question: "18. แผนภาพ Dialogue Diagram ประกอบด้วยองค์ประกอบสำคัญ 3 ส่วนในแต่ละกล่องหน้าจอเรียงจากบนลงล่างตามข้อใด?",
+                        options: [
+                            { text: "ก. ชื่อหน้าจอ, เลขลำดับหน้าจอ, ข้อมูลอินพุต", isCorrect: false, rationale: "ไม่ถูกต้องตามมาตรฐาน Dialogue Diagram" },
+                            { text: "ข. เลขลำดับหน้าจอ (Unique Reference), ชื่อหน้าจอ (Name/Description), เลขลำดับหน้าจอที่อ้างอิงมา/กลับ (Return References)", isCorrect: true, rationale: "ถูกต้อง! องค์ประกอบ 3 ส่วนคือ Top (Unique Ref), Middle (Screen Name), Bottom (Return Ref)" },
+                            { text: "ค. ชื่อฐานข้อมูล, ตารางที่เกี่ยวข้อง, สิทธิ์ผู้ใช้งาน", isCorrect: false, rationale: "เป็นข้อมูลของแผนผังฐานข้อมูล" },
+                            { text: "ง. วันที่สร้าง, ผู้รับผิดชอบ, สถานะระบบ", isCorrect: false, rationale: "เป็นส่วนข้อมูลบริหารโครงการ" }
+                        ]
+                    },
+                    {
+                        question: "19. เทคนิคการทดสอบซอฟต์แวร์แบบ \"White Box Testing\" แตกต่างจาก \"Black Box Testing\" อย่างไร?",
+                        options: [
+                            { text: "ก. White Box สนใจผลลัพธ์อินพุต/เอาต์พุต ส่วน Black Box ตรวจโค้ดภายใน", isCorrect: false, rationale: "สลับความหมายกัน" },
+                            { text: "ข. White Box ตรวจสอบตรรกะโค้ดและโครงสร้างโปรแกรมภายใน ส่วน Black Box สนใจทดสอบฟังก์ชันการทำงานโดยดูเฉพาะอินพุตและเอาต์พุต", isCorrect: true, rationale: "ถูกต้อง! White Box มองเห็นซอร์สโค้ดและตรรกะภายใน ส่วน Black Box มองระบบเป็นกล่องดำ ตรวจสอบเฉพาะ Input/Output" },
+                            { text: "ค. White Box ทำโดยผู้ใช้จริง ส่วน Black Box ทำโดยโปรแกรมเมอร์เท่านั้น", isCorrect: false, rationale: "White Box ทำโดยนักพัฒนา ส่วน Black Box ทำได้ทั้ง Tester และผู้ใช้งาน" },
+                            { text: "ง. ไม่มีข้อใดแตกต่างกัน เป็นชื่อเรียกเดียวกันในคนละตำรา", isCorrect: false, rationale: "เป็นเทคนิคที่แตกต่างกันอย่างชัดเจน" }
+                        ]
+                    },
+                    {
+                        question: "20. ขั้นตอนการทดสอบระบบ (Stages of Tests) ลำดับใดที่ถูกต้องตามหลักกระบวนการพัฒนาซอฟต์แวร์ก่อนนำไปใช้งานจริง?",
+                        options: [
+                            { text: "ก. System Testing -> Unit Testing -> Acceptance Testing -> Integration Testing", isCorrect: false, rationale: "ลำดับไม่ถูกต้อง" },
+                            { text: "ข. Unit Testing -> Integration Testing -> System Testing -> Acceptance Testing", isCorrect: true, rationale: "ถูกต้อง! ลำดับคือ ทดสอบหน่วยย่อย (Unit) -> ทดสอบการทำงานร่วมกัน (Integration) -> ทดสอบทั้งระบบ (System) -> ทดสอบการยอมรับจากผู้ใช้ (Acceptance)" },
+                            { text: "ค. Acceptance Testing -> System Testing -> Integration Testing -> Unit Testing", isCorrect: false, rationale: "เรียงย้อนกลับจากหลังไปหน้า" },
+                            { text: "ง. Integration Testing -> Unit Testing -> Acceptance Testing -> System Testing", isCorrect: false, rationale: "ลำดับไม่ถูกต้อง" }
+                        ]
+                    },
+                    {
+                        question: "21. วิธีการติดตั้งระบบใหม่ (Installation Method) แบบใดที่มี \"ความปลอดภัยสูงสุด (เสี่ยงต่ำที่สุด)\" แต่มี \"ค่าใช้จ่ายสูงและยุ่งยากที่สุด\" เนื่องจากการดำเนินงานซ้ำซ้อน?",
+                        options: [
+                            { text: "ก. Direct Installation", isCorrect: false, rationale: "ความเสี่ยงสูงที่สุด" },
+                            { text: "ข. Parallel Installation", isCorrect: true, rationale: "ถูกต้อง! รันระบบเดิมควบคู่ระบบใหม่ ปลอดภัยสูงสุดเพราะมีระบบเดิมสำรอง แต่ค่าใช้จ่ายและภาระงานสูงมาก" },
+                            { text: "ค. Phased Installation", isCorrect: false, rationale: "เป็นการทยอยติดตั้งเป็นเฟส" },
+                            { text: "ง. Pilot Project", isCorrect: false, rationale: "เป็นการทดลองใช้ในแผนกนำร่อง" }
+                        ]
+                    },
+                    {
+                        question: "22. หากองค์กรขนาดเล็กมีงบประมาณจำกัด ระบบงานใหม่มีความแตกต่างจากระบบเดิมอย่างสิ้นเชิง และผู้บริหารตัดสินใจ \"ยกเลิกระบบเดิมแล้วเปิดใช้ระบบใหม่ทันทีในวันเดียว\" วิธีนี้คืออะไรและมีความเสี่ยงอย่างไร?",
+                        options: [
+                            { text: "ก. Parallel Installation - เสี่ยงเรื่องค่าใช้จ่ายสูง", isCorrect: false, rationale: "ไม่ใช่การทำคู่ขนาน" },
+                            { text: "ข. Direct Installation (Immediate Cutover) - เสี่ยงสูงมากหากเกิดข้อผิดพลาดที่คาดไม่ถึง", isCorrect: true, rationale: "ถูกต้อง! Direct Cutover ปิดระบบเก่าเปิดระบบทันที เสี่ยงที่สุดหากเกิดข้อผิดพลาดเพราะไม่มีระบบสำรอง" },
+                            { text: "ค. Phased Installation - เสี่ยงเรื่องใช้เวลานานเกินไป", isCorrect: false, rationale: "ไม่ใช่ Phased" },
+                            { text: "ง. Pilot Project - เสี่ยงเรื่องระบบไม่ครอบคลุมทุกแผนก", isCorrect: false, rationale: "ไม่ใช่ Pilot" }
+                        ]
+                    },
+                    {
+                        question: "23. การติดตั้งระบบแบบ \"Pilot Project\" มีลักษณะการดำเนินการอย่างไร?",
+                        options: [
+                            { text: "ก. ติดตั้งและใช้งานระบบใหม่พร้อมกับระบบเดิมทุกสาขาพร้อมกัน", isCorrect: false, rationale: "คือ Parallel Installation" },
+                            { text: "ข. ทยอยติดตั้งทีละโมดูลทีละเฟสจนครบ", isCorrect: false, rationale: "คือ Phased Installation" },
+                            { text: "ค. นำระบบใหม่ไปติดตั้งและทดลองใช้เฉพาะกับหน่วยงานหรือส่วนงานใดส่วนงานหนึ่งก่อนเพื่อประเมินผล", isCorrect: true, rationale: "ถูกต้อง! Pilot Project คือการนำร่องใช้กับสาขาหรือแผนกเดียวเพื่อประเมินผลก่อนขยายไปยังส่วนอื่นๆ" },
+                            { text: "ง. จ้างบริษัทภายนอกมาติดตั้งให้ทั้งหมดทันที", isCorrect: false, rationale: "ไม่เกี่ยวข้องกัน" }
+                        ]
+                    },
+                    {
+                        question: "24. เอกสารคู่มือระบบ (System Documentation) แตกต่างจากคู่มือผู้ใช้ (User Documentation) ตรงที่คู่มือระบบมุ่งเน้นสิ่งใด?",
+                        options: [
+                            { text: "ก. อธิบายวิธีคลิกเมาส์และกรอกฟอร์มสมัครสมาชิกสำหรับลูกค้าทั่วไป", isCorrect: false, rationale: "เป็นส่วนของ User Documentation" },
+                            { text: "ข. อธิบายวิธีจัดการแอปพลิเคชันซอฟต์แวร์ การสำรองข้อมูล การกู้คืนระบบ และการกำหนดสิทธิ์ผู้ดูแลระบบ (Operator)", isCorrect: true, rationale: "ถูกต้อง! System Documentation จัดทำขึ้นสำหรับเจ้าหน้าที่เทคนิค/ผู้ดูแลระบบ (Operator/Admin)" },
+                            { text: "ค. อธิบายเนื้อหาบทเรียนฝึกอบรม (Tutorials)", isCorrect: false, rationale: "เป็นส่วนของ User Documentation" },
+                            { text: "ง. แสดงภาพหน้าจอหลักของเว็บไซต์", isCorrect: false, rationale: "เป็นส่วนของ User Documentation" }
+                        ]
+                    },
+                    {
+                        question: "25. ในกระบวนการฝึกอบรม (Training) การอบรมประเภท \"Operator Training\" จะต้องมุ่งเน้นเนื้อหาไปที่เรื่องใดเป็นหลัก?",
+                        options: [
+                            { text: "ก. หน้าที่การทำกิจกรรมธุรกิจประจำวันของพนักงานทั่วไป", isCorrect: false, rationale: "เป็นของ End-User Training" },
+                            { text: "ข. หน้าที่การสนับสนุนระบบ การสำรองข้อมูล (Backup) และการกู้คืนไฟล์ข้อมูล (Recovery)", isCorrect: true, rationale: "ถูกต้อง! Operator Training เน้นการดูแลระบบเบื้องหลัง ซัพพอร์ต สำรองข้อมูล และแก้ปัญหาระบบ" },
+                            { text: "ค. วิธีการวิเคราะห์ความต้องการของลูกค้า", isCorrect: false, rationale: "เป็นงานของวิเคราะห์ระบบ" },
+                            { text: "ง. การออกแบบฐานข้อมูลเชิงสัมพันธ์", isCorrect: false, rationale: "เป็นงานของ Database Designer" }
+                        ]
+                    },
+                    {
+                        question: "26. การประเมินผลระบบ (System Evaluation) หลังจากติดตั้งและใช้งานจริง ควรดำเนินการในช่วงเวลาใดจึงจะสะท้อนประสิทธิภาพและปัญหาที่แท้จริงได้ดีที่สุด?",
+                        options: [
+                            { text: "ก. ทันทีในชั่วโมงแรกของการเปิดระบบ", isCorrect: false, rationale: "เร็วเกินไป ผู้ใช้ยังอยู่ในช่วงปรับตัว" },
+                            { text: "ข. ภายหลังการติดตั้งและใช้งานไปแล้วประมาณ 6 – 9 เดือน", isCorrect: true, rationale: "ถูกต้อง! ควรประเมินหลังใช้ไปแล้ว 6–9 เดือน เพื่อให้ผู้ใช้คุ้นเคยและเห็นข้อดีข้อเสียที่แท้จริง" },
+                            { text: "ค. ก่อนส่งมอบงาน 1 สัปดาห์", isCorrect: false, rationale: "ยังไม่ได้นำระบบไปใช้งานจริงในธุรกิจ" },
+                            { text: "ง. หลังจากใช้งานครบ 5 ปีเต็ม", isCorrect: false, rationale: "นานเกินไป ระบบอาจล้าสมัยไปแล้ว" }
+                        ]
+                    },
+                    {
+                        question: "27. การบำรุงรักษาระบบ (Systems Maintenance) ประเภท \"Adaptive Maintenance\" หมายถึงข้อใด?",
+                        options: [
+                            { text: "ก. การแก้ไขข้อผิดพลาด (Bug) ที่ผู้ใช้พบเจอประจำวัน", isCorrect: false, rationale: "เรียกว่า Corrective Maintenance" },
+                            { text: "ข. การปรับปรุงระบบให้รองรับสภาพแวดล้อมใหม่ เช่น การเปลี่ยนรุ่น OS หรือกฎหมายภาษีใหม่", isCorrect: true, rationale: "ถูกต้อง! Adaptive คือการปรับปรุงระบบให้สอดรับกับสภาพแวดล้อม เทคโนโลยี หรือข้อกำหนดทางกฎหมายที่เปลี่ยนไป" },
+                            { text: "ค. การเพิ่มฟีเจอร์ใหม่ๆ เพื่อเพิ่มประสิทธิภาพการทำงาน", isCorrect: false, rationale: "เรียกว่า Perfective Maintenance" },
+                            { text: "ง. การตรวจสอบป้องกันฮาร์ดแวร์เสื่อมสภาพ", isCorrect: false, rationale: "เรียกว่า Preventive Maintenance" }
+                        ]
+                    },
+                    {
+                        question: "28. หากผู้ใช้งานระบบแจ้งว่าพบข้อผิดพลาด (Bug) ในการคำนวณส่วนลดสินค้า และโปรแกรมเมอร์ต้องเข้ามาแก้ไขโค้ดทันที การกระทำนี้จัดเป็นการบำรุงรักษาประเภทใด?",
+                        options: [
+                            { text: "ก. Corrective Maintenance", isCorrect: true, rationale: "ถูกต้อง! Corrective Maintenance คือการแก้ไขข้อผิดพลาด (Bugs/Errors) ของระบบที่เกิดขึ้นจากการใช้งาน" },
+                            { text: "ข. Adaptive Maintenance", isCorrect: false, rationale: "ไม่เกี่ยวกับการเปลี่ยนสภาพแวดล้อม" },
+                            { text: "ค. Perfective Maintenance", isCorrect: false, rationale: "ไม่เกี่ยวกับการเพิ่มประสิทธิภาพหรือฟีเจอร์ใหม่" },
+                            { text: "ง. Preventive Maintenance", isCorrect: false, rationale: "ไม่เกี่ยวกับการป้องกันล่วงหน้า" }
+                        ]
+                    },
+                    {
+                        question: "29. บทบาทหน้าที่หลักของ \"นักวิเคราะห์ระบบ (System Analyst)\" ข้อใดมีความสำคัญสูงสุดในการเชื่อมโยงบุคคลกลุ่มต่างๆ ในโครงการ?",
+                        options: [
+                            { text: "ก. เป็นผู้เขียนโค้ดภาษา Java และ C# ทั้งหมดด้วยตนเอง", isCorrect: false, rationale: "เป็นหน้าที่หลักของ Programmer" },
+                            { text: "ข. เป็นตัวกลางประสานงานระหว่าง System Owners, System Users และ System Builders", isCorrect: true, rationale: "ถูกต้อง! SA ทำหน้าที่เป็นตัวกลางในการสื่อสารและแปลความต้องการระหว่างผู้บริหาร ผู้ใช้ และทีมพัฒนา" },
+                            { text: "ค. เป็นผู้ควบคุมงบประมาณการเงินและจัดซื้อที่ดินของบริษัท", isCorrect: false, rationale: "เป็นหน้าที่ของเจ้าของหรือผู้บริหาร" },
+                            { text: "ง. เป็นผู้ตรวจสอบระบบเครือข่ายอินเทอร์เน็ตของออฟฟิศ", isCorrect: false, rationale: "เป็นหน้าที่ของ Network Engineer" }
+                        ]
+                    },
+                    {
+                        question: "30. ข้อใดอธิบายถึง \"สาเหตุหลัก\" ที่มักทำให้โครงการพัฒนาระบบสารสนเทศล้มเหลวมากที่สุด?",
+                        options: [
+                            { text: "ก. การเลือกใช้ภาษาโปรแกรมที่ทันสมัยเกินไป", isCorrect: false, rationale: "ไม่ใช่สาเหตุหลัก" },
+                            { text: "ข. การกำหนดขอบเขตปัญหา (Scope) ไม่ชัดเจน และความต้องการของผู้ใช้เปลี่ยนแปลงตลอดเวลาโดยไม่มีการควบคุม", isCorrect: true, rationale: "ถูกต้อง! การไม่ควบคุมขอบเขต (Scope Creep) และ Requirement ที่ไม่แน่นอน คือสาเหตุอันดับ 1 ของความล้มเหลว" },
+                            { text: "ค. การใช้กระดาษจดบันทึกเอกสารมากเกินไป", isCorrect: false, rationale: "ไม่ส่งผลให้โครงการล้มเหลวโดยตรง" },
+                            { text: "ง. การมีบุคลากรในทีมพัฒนาน้อยกว่า 2 คน", isCorrect: false, rationale: "ขึ้นอยู่กับขนาดและความซับซ้อนของโครงการ" }
+                        ]
+                    },
+                    {
+                        question: "31. ในการวิเคราะห์ข้อกำหนดความต้องการ (Requirements Analysis) ข้อใดคือประโยชน์หลักของการจัดทำ \"Data Dictionary\" (พจนานุกรมข้อมูล)?",
+                        options: [
+                            { text: "ก. ใช้เป็นพจนานุกรมแปลคำศัพท์ภาษาอังกฤษเป็นภาษาไทยสำหรับโปรแกรมเมอร์", isCorrect: false, rationale: "ไม่ใช่พจนานุกรมภาษา" },
+                            { text: "ข. ใช้รวบรวมและนิยามความหมาย โครงสร้าง และชนิดข้อมูลของ Data Flow, Data Store ทุกตัวในระบบให้ตรงกัน", isCorrect: true, rationale: "ถูกต้อง! Data Dictionary ใช้นิยามความหมายและโครงสร้างข้อมูลทั้งหมดใน DFD เพื่อความเข้าใจตรงกันทั้งทีม" },
+                            { text: "ค. ใช้กำหนดราคาค่าจ้างพัฒนาระบบของบริษัท Outsource", isCorrect: false, rationale: "ไม่เกี่ยวข้องกัน" },
+                            { text: "ง. ใช้ตรวจสอบความเร็วของอินเทอร์เน็ตในองค์กร", isCorrect: false, rationale: "ไม่เกี่ยวข้องกัน" }
+                        ]
+                    },
+                    {
+                        question: "32. หากนักวิเคราะห์ระบบต้องการทดสอบตรรกะและการตัดสินใจที่ซับซ้อนซึ่งมีหลายเงื่อนไขซ้อนกัน เครื่องมือใดในขั้นตอนการวิเคราะห์เชิงตรรกะที่เหมาะสมที่สุดในการช่วยอธิบายเงื่อนไขเหล่านั้น?",
+                        options: [
+                            { text: "ก. Decision Table / Decision Tree (ตารางตัดสินใจหรือผังต้นไม้)", isCorrect: true, rationale: "ถูกต้อง! Decision Table และ Decision Tree เหมาะสำหรับอธิบายตรรกะและเงื่อนไขทางธุรกิจที่ซับซ้อนได้อย่างชัดเจน" },
+                            { text: "ข. Gantt Chart", isCorrect: false, rationale: "ใช้สำหรับวางแผนตารางเวลาโครงการ" },
+                            { text: "ค. Organization Chart", isCorrect: false, rationale: "ใช้แสดงโครงสร้างสายการบังคับบัญชา" },
+                            { text: "ง. Screen Layout", isCorrect: false, rationale: "ใช้สำหรับออกแบบหน้าจอ" }
+                        ]
+                    },
+                    {
+                        question: "33. ข้อใดคือความเสี่ยงหลักของการเลือกใช้วิธีพัฒนาแบบ Outsource ในการสร้างระบบสารสนเทศขององค์กร?",
+                        options: [
+                            { text: "ก. พนักงานภายในองค์กรจะมีความสุขเกินไปจนไม่ทำงาน", isCorrect: false, rationale: "ไม่ใช่ข้อเสียตามหลักการ" },
+                            { text: "ข. เสี่ยงต่อการรั่วไหลหรือสูญเสียความลับทางธุรกิจ และองค์กรต้องพึ่งพาผู้ให้บริการภายนอก", isCorrect: true, rationale: "ถูกต้อง! การ Outsource มีความเสี่ยงเรื่องความปลอดภัยของข้อมูลลับและภาวะพึ่งพิงบริษัทภายนอก" },
+                            { text: "ค. ได้รับระบบที่ทำงานเร็วกว่ากำหนดมากเกินไป", isCorrect: false, rationale: "ไม่ใช่ความเสี่ยงหลัก" },
+                            { text: "ง. ประหยัดงบประมาณจนเกินไปทำให้บริษัทล้มละลาย", isCorrect: false, rationale: "Outsource มีค่าใช้จ่ายสูง" }
+                        ]
+                    },
+                    {
+                        question: "34. ในการออกแบบสถาปัตยกรรมระบบแบบ Client-Server หากแบ่งการทำงานออกเป็นชั้น (Tiers) ข้อใดกล่าวถึงข้อดีของ 3-Tier Architecture ได้ถูกต้อง?",
+                        options: [
+                            { text: "ก. รวมทุกฟังก์ชันไว้ที่เครื่องเดียวทำให้ดูแลรักษาง่าย", isCorrect: false, rationale: "นั่นคือ 1-Tier หรือ Single System" },
+                            { text: "ข. แยก Application Logic ออกจาก Presentation และ Database ทำให้ระบบมีความยืดหยุ่น ปรับขยาย (Scalable) และบำรุงรักษาง่ายกว่า", isCorrect: true, rationale: "ถูกต้อง! 3-Tier แยกการแสดงผล ตรรกะประมวลผล และการจัดเก็บข้อมูล ทำให้อัปเกรดและดูแลรักษาง่าย" },
+                            { text: "ค. ไม่จำเป็นต้องใช้ระบบเครือข่ายคอมพิวเตอร์", isCorrect: false, rationale: "จำเป็นต้องใช้ระบบเครือข่าย" },
+                            { text: "ง. ประหยัดค่าใช้จ่ายฮาร์ดแวร์มากที่สุดเพราะใช้เครื่องพีซีเก่าได้", isCorrect: false, rationale: "ไม่ใช่ข้อได้เปรียบหลัก" }
+                        ]
+                    },
+                    {
+                        question: "35. ข้อใดคือเป้าหมายหลักของการทำ \"Data Validation\" ในกระบวนการออกแบบส่วนนำเข้าข้อมูล (Input Design)?",
+                        options: [
+                            { text: "ก. ตรวจสอบความถูกต้อง ครบถ้วน และความสมเหตุสมผลของข้อมูลก่อนบันทึกลงฐานข้อมูลเพื่อป้องกันข้อมูลขยะ (Garbage In, Garbage Out)", isCorrect: true, rationale: "ถูกต้อง! Data Validation ทำขึ้นเพื่อคัดกรองข้อมูล ป้องกันไม่ให้ข้อมูลที่ผิดพลาดเข้าไปอยู่ในระบบ" },
+                            { text: "ข. เร่งความเร็วในการพิมพ์คีย์บอร์ดของผู้ใช้งาน", isCorrect: false, rationale: "ไม่เกี่ยวข้องกัน" },
+                            { text: "ค. ตรวจสอบความสวยงามของสีสันหน้าจออินเทอร์เฟซ", isCorrect: false, rationale: "เป็นเรื่องของ UI Design" },
+                            { text: "ง. ลดจำนวนบรรทัดของซอร์สโค้ดภาษาโปรแกรม", isCorrect: false, rationale: "ไม่เกี่ยวข้องกัน" }
+                        ]
+                    },
+                    {
+                        question: "36. ในขั้นตอนการเขียนโปรแกรม (Coding) ตามวงจร SDLC ใครคือผู้รับผิดชอบหลัก และต้องใช้เอกสารใดเป็นแนวทางอ้างอิงสำคัญที่สุด?",
+                        options: [
+                            { text: "ก. นักวิเคราะห์ระบบ - ใช้เอกสารศึกษาความเป็นไปได้", isCorrect: false, rationale: "ผู้เขียนโค้ดคือ Programmer" },
+                            { text: "ข. โปรแกรมเมอร์ - ใช้เอกสารการวิเคราะห์และออกแบบระบบ (เช่น DFD, ERD, Process Spec, Report Layout) ที่จัดทำโดย SA", isCorrect: true, rationale: "ถูกต้อง! Programmer เป็นผู้ลงมือเขียนโค้ดโดยยึดตามเอกสารการออกแบบที่ SA จัดทำขึ้น" },
+                            { text: "ค. ผู้บริหาร - ใช้เอกสารงบประมาณ", isCorrect: false, rationale: "ไม่ถูกต้อง" },
+                            { text: "ง. ลูกค้า - ใช้คู่มือการใช้งาน", isCorrect: false, rationale: "ไม่ถูกต้อง" }
+                        ]
+                    },
+                    {
+                        question: "37. การทดสอบแบบ \"Alpha Testing\" มีความแตกต่างจากการทดสอบแบบอื่นๆ อย่างไร?",
+                        options: [
+                            { text: "ก. เป็นการทดสอบโดยจำลองสภาพแวดล้อมเสมือนจริงภายในทีมพัฒนาหรือบริษัทผู้ผลิตก่อนส่งมอบ", isCorrect: true, rationale: "ถูกต้อง! Alpha Testing ทำในสภาพแวดล้อมของผู้พัฒนาโดยมีผู้ใช้หรือ Tester จำลองการใช้งาน ก่อนทำ Beta Testing" },
+                            { text: "ข. เป็นการทดสอบโดยให้ลูกค้าใช้งานจริงบนอินเทอร์เน็ตสาธารณะทันที", isCorrect: false, rationale: "คือ Beta Testing หรือ Deployment" },
+                            { text: "ค. เป็นการทดสอบเฉพาะระบบเครือข่ายไร้สาย", isCorrect: false, rationale: "ไม่เกี่ยวข้องกัน" },
+                            { text: "ง. เป็นการทดสอบโดยไม่ใช้ข้อมูลใดๆ เลย", isCorrect: false, rationale: "ต้องใช้ข้อมูลในการทดสอบ" }
+                        ]
+                    },
+                    {
+                        question: "38. ข้อใดจัดเป็นตัวอย่างของ \"Perfective Maintenance\" ในกระบวนการบำรุงรักษาระบบ?",
+                        options: [
+                            { text: "ก. แก้ไขบั๊กหน้าจอเข้าสู่ระบบล่ม", isCorrect: false, rationale: "เป็น Corrective Maintenance" },
+                            { text: "ข. ปรับปรุงระบบให้รองรับระบบปฏิบัติการ Windows รุ่นใหม่", isCorrect: false, rationale: "เป็น Adaptive Maintenance" },
+                            { text: "ค. เพิ่มฟีเจอร์การสร้างรายงานกราฟแท่งแบบใหม่ตามคำขอเพิ่มเติมของผู้ใช้เพื่อเพิ่มประสิทธิภาพการทำงาน", isCorrect: true, rationale: "ถูกต้อง! Perfective คือการเพิ่มฟีเจอร์หรือปรับปรุงประสิทธิภาพการทำงานตามความต้องการใหม่" },
+                            { text: "ง. เปลี่ยนฮาร์ดแวร์เซิร์ฟเวอร์ที่ไหม้เสียหาย", isCorrect: false, rationale: "เป็น Corrective Maintenance" }
+                        ]
+                    },
+                    {
+                        question: "39. ในกรณีที่ระบบงานมีขนาดใหญ่มากและไม่สามารถหยุดระบบเดิมเพื่อเปลี่ยนใหม่ได้ทันที การเลือกใช้วิธีติดตั้งแบบ \"Phased Installation\" มีข้อดีสำคัญอย่างไร?",
+                        options: [
+                            { text: "ก. ติดตั้งเสร็จภายใน 1 วันและมีค่าใช้จ่ายต่ำที่สุด", isCorrect: false, rationale: "นั่นคือ Direct Installation" },
+                            { text: "ข. ทยอยติดตั้งทีละส่วนหรือทีละโมดูล ช่วยลดผลกระทบต่อองค์กรและช่วยให้ทยอยชำระค่าใช้จ่ายเป็นระยะได้", isCorrect: true, rationale: "ถูกต้อง! Phased Installation ทยอยเปลี่ยนทีละส่วน ลดความเสี่ยง และจัดการผลกระทบได้ดี" },
+                            { text: "ค. ไม่ต้องมีการฝึกอบรมผู้ใช้งานเลย", isCorrect: false, rationale: "ยังคงต้องมีการอบรมผู้ใช้" },
+                            { text: "ง. มีความปลอดภัยสูงเท่ากับการทำ Parallel ทุกประการ", isCorrect: false, rationale: "Parallel ยังคงปลอดภัยกว่า" }
+                        ]
+                    },
+                    {
+                        question: "40. ข้อใดคือความหมายที่แท้จริงของแนวคิด \"Never Die Cycle\" ในวงจรการพัฒนาระบบ (SDLC)?",
+                        options: [
+                            { text: "ก. ระบบคอมพิวเตอร์จะไม่เคยพังเสียหายตลอดไป", isCorrect: false, rationale: "ไม่ใช่ความหมายของ SDLC" },
+                            { text: "ข. วงจรการพัฒนาระบบไม่มีวันสิ้นสุด เพราะระบบต้องมีการปรับปรุงและพัฒนาอย่างต่อเนื่องตามความต้องการใหม่ๆ ของผู้ใช้และธุรกิจ", isCorrect: true, rationale: "ถูกต้อง! SDLC เป็นวงจรที่ไม่หยุดนิ่ง เมื่อบำรุงรักษาไปสักพักก็จะวนกลับมาวิเคราะห์ปรับปรุงเป็นระบบใหม่อีกครั้ง" },
+                            { text: "ค. โครงการพัฒนาซอฟต์แวร์จะไม่เคยถูกยกเลิกกลางคัน", isCorrect: false, rationale: "ไม่เกี่ยวข้องกัน" },
+                            { text: "ง. โปรแกรมเมอร์ทุกคนจะมีงานทำตลอดชีวิต", isCorrect: false, rationale: "ไม่ใช่ความหมายเชิงทฤษฎีระบบ" }
+                        ]
+                    }
+                ]
             },
-            {
-                question: "2. ในขั้นตอนการศึกษาความเป็นไปได้ (Feasibility Study) หากนักวิเคราะห์ระบบพบว่า ระบบใหม่ที่พัฒนาขึ้นมีต้นทุนการลงทุนสูงมากแต่จะช่วยประหยัดเวลาและเพิ่มผลผลิตให้องค์กรในระยะยาว การประเมินนี้สอดคล้องกับความเป็นไปได้ด้านใดมากที่สุด?",
-                options: [
-                    { text: "Technical Feasibility", isCorrect: false },
-                    { text: "Operational Feasibility", isCorrect: false },
-                    { text: "Economic Feasibility", isCorrect: true },
-                    { text: "Schedule Feasibility", isCorrect: false }
-                ],
-                rationale: "Economic Feasibility (ความเป็นไปได้ทางเศรษฐศาสตร์) เน้นการเปรียบเทียบต้นทุน (Cost) และผลประโยชน์ที่จะได้รับ (Benefit) เพื่อดูว่าโครงการมีความคุ้มค่าทางการเงินและการลงทุนในระยะยาวหรือไม่"
-            },
-            {
-                question: "3. ข้อใดอธิบายความแตกต่างระหว่าง \"การวิเคราะห์เชิงตรรกะ (Logical Design)\" กับ \"การวิเคราะห์เชิงกายภาพ (Physical Design)\" ได้แม่นยำที่สุด?",
-                options: [
-                    { text: "Logical Model สนใจว่าระบบต้องทำอะไรบ้างโดยไม่ยึดติดกับเทคโนโลยี ส่วน Physical Model จะระบุรายละเอียดว่าจะทำอย่างไรโดยใช้เทคโนโลยีหรือฮาร์ดแวร์ตัวไหน", isCorrect: true },
-                    { text: "Logical Model ใช้สำหรับออกแบบหน้าจอและฐานข้อมูล ส่วน Physical Model ใช้สำหรับวาด DFD", isCorrect: false },
-                    { text: "Logical Model คือการทำงานของระบบเดิม ส่วน Physical Model คือระบบใหม่", isCorrect: false },
-                    { text: "Logical Model ขึ้นอยู่กับภาษาโปรแกรมที่ใช้ ส่วน Physical Model เป็นอิสระจากซอฟต์แวร์", isCorrect: false }
-                ],
-                rationale: "Logical Design คือการกำหนดว่าระบบต้องทำงานอะไรบ้าง (WHAT) โดยไม่ผูกติดเทคโนโลยี ส่วน Physical Design กำหนดว่าจะระบบจะทำงานอย่างไร (HOW) โดยเจาะจงฮาร์ดแวร์ ซอฟต์แวร์ และเทคโนโลยีจริง"
-            },
-            {
-                question: "4. ในการรวบรวมความต้องการ (Requirements Gathering) หากนักวิเคราะห์ระบบต้องการศึกษาเอกสาร คู่มือระเบียบปฏิบัติ และรายงานย้อนหลังขององค์กรเพื่อดูโครงสร้างขั้นตอนงานเดิม เทคนิคใดกำลังถูกใช้งาน?",
-                options: [
-                    { text: "Joint Application Design (JAD)", isCorrect: false },
-                    { text: "Document Analysis (การวิเคราะห์เอกสาร)", isCorrect: true },
-                    { text: "Observation", isCorrect: false },
-                    { text: "Questionnaires", isCorrect: false }
-                ],
-                rationale: "Document Analysis คือการค้นคว้าและศึกษารายละเอียดจากเอกสาร คู่มือปฏิบัติงาน และรายงานที่มีอยู่เดิมในองค์กร เพื่อเข้าใจกฎเกณฑ์และกระบวนการทำงานปัจจุบัน"
-            },
-            {
-                question: "5. ข้อใดกล่าวถึงข้อจำกัดหรือข้อเสียของการใช้แผนผังระบบ (System Flowchart) ได้ถูกต้องตามหลักวิชาการ?",
-                options: [
-                    { text: "สามารถแสดงตรรกะระดับบรรทัดคำสั่งของภาษา PHP ได้อย่างตรงไปตรงมา", isCorrect: false },
-                    { text: "ทุกๆ ขั้นตอนการทำงานจะใช้สัญลักษณ์รูปทรงเดียวกันหมด ทำให้ไม่ทราบว่าขั้นตอนไหนสำคัญกว่ากัน และไม่บอกเหตุผลว่าทำไมต้องปฏิบัติงานตามลำดับนั้น", isCorrect: true },
-                    { text: "เป็นเครื่องมือที่ใช้สื่อสารระหว่างมนุษย์กับเครื่องคอมพิวเตอร์โดยตรง", isCorrect: false },
-                    { text: "ไม่สามารถนำไปใช้กับงานขนาดใหญ่ได้เพราะวาดง่ายเกินไป", isCorrect: false }
-                ],
-                rationale: "System Flowchart แสดงลำดับขั้นตอนของสื่อและอุปกรณ์ แต่มีข้อจำกัดตรงที่ไม่บอกเหตุผลเบื้องหลังของกระบวนการ และสัญลักษณ์ทางตรรกะอาจไม่ได้จำแนกความสำคัญเชิงลึกของแต่ละขั้นตอน"
-            },
-            {
-                question: "6. พิจารณาโครงสร้างผังงานแบบทำซ้ำ: หากเงื่อนไขกำหนดให้ \"ทำงานตามคำสั่งภายในลูปก่อน 1 ครั้ง แล้วจึงตรวจสอบเงื่อนไข ถ้าเงื่อนไขเป็นเท็จให้ทำซ้ำต่อ\" โครงสร้างนี้ตรงกับคำสั่งใด?",
-                options: [
-                    { text: "do...while", isCorrect: true },
-                    { text: "do...until", isCorrect: false },
-                    { text: "For Loop", isCorrect: false },
-                    { text: "If-Else", isCorrect: false }
-                ],
-                rationale: "do...while เป็นโครงสร้างลูปแบบ Post-test loop ซึ่งจะประมวลผลคำสั่งในลูปก่อนอย่างน้อย 1 รอบเสมอ จากนั้นจึงตรวจสอบเงื่อนไขความถูกต้อง"
-            },
-            {
-                question: "7. ในแผนภาพกระแสข้อมูล (DFD) หากพบเส้น Data Flow วิ่งตรงจาก \"External Entity A\" ไปยัง \"External Entity B\" โดยตรง ข้อสรุปใดถูกต้องที่สุด?",
-                options: [
-                    { text: "ถูกต้องสมบูรณ์เพราะเป็นการสื่อสารระหว่างคนกับคน", isCorrect: false },
-                    { text: "ผิดหลักการ (Invalid) เพราะ External Entity ไม่สามารถส่งข้อมูลหากันได้โดยตรงต้องผ่าน Process", isCorrect: true },
-                    { text: "ถูกต้องเฉพาะใน DFD Level 0 เท่านั้น", isCorrect: false },
-                    { text: "ผิดหลักการเพราะต้องมี Data Store คั่นกลางเสมอ", isCorrect: false }
-                ],
-                rationale: "ตามกฎสัญลักษณ์ของ DFD (Data Flow Diagram Rules) External Entity (หน่วยภายนอก) ไม่สามารถรับส่งข้อมูลหา External Entity ด้วยกันเองโดยตรงได้ ต้องผ่านกระบวนการ (Process) เสมอ"
-            },
-            {
-                question: "8. หากกระบวนการ (Process) หมายเลข 3 ใน DFD Level 1 ถูกนำมาแตกระดับย่อยเป็น Child Diagram (DFD Level 2) กระบวนการย่อยภายในไดอะแกรมระดับ 2 นี้ควรมีหมายเลขกำกับอย่างไร?",
-                options: [
-                    { text: "1, 2, 3", isCorrect: false },
-                    { text: "3.1, 3.2, 3.3", isCorrect: true },
-                    { text: "3A, 3B, 3C", isCorrect: false },
-                    { text: "2.1, 2.2, 2.3", isCorrect: false }
-                ],
-                rationale: "หลักการแตกกระจายระดับ DFD (Functional Decomposition) Process ย่อยจะใช้หมายเลขของ Process แม่นำหน้าเสมอ แล้วตามด้วยจุดและลำดับย่อย เช่น 3.1, 3.2, 3.3"
-            },
-            {
-                question: "9. ในแผนภาพ ER Diagram สัญลักษณ์ \"วงรีเส้นคู่ (Double Ellipse)\" สื่อถึงคุณลักษณะของแอตทริบิวต์ประเภทใด?",
-                options: [
-                    { text: "Simple Attribute", isCorrect: false },
-                    { text: "Key Attribute", isCorrect: false },
-                    { text: "Multi-valued Attribute (แอตทริบิวต์ที่มีได้หลายค่า)", isCorrect: true },
-                    { text: "Derived Attribute", isCorrect: false }
-                ],
-                rationale: "สัญลักษณ์วงรีซ้อนกันสองชั้น (Double Ellipse) ใน ERD ใช้แทน Multi-valued Attribute หรือแอตทริบิวต์ที่เก็บข้อมูลได้มากกว่าหนึ่งค่า เช่น เบอร์โทรศัพท์ หรือ วุฒิการศึกษา"
-            },
-            {
-                question: "10. แอตทริบิวต์ประเภท \"Derived Attribute\" ใน ER Model มีลักษณะการทำงานอย่างไร และใช้สัญลักษณ์ใด?",
-                options: [
-                    { text: "เป็นข้อมูลที่ได้จากการคำนวณจากแอตทริบิวต์อื่น ใช้สัญลักษณ์วงรีเส้นประ", isCorrect: true },
-                    { text: "เป็นข้อมูลที่ไม่สามารถแบ่งย่อยได้อีก ใช้สัญลักษณ์วงรีเส้นเดี่ยว", isCorrect: false },
-                    { text: "เป็นคีย์หลัก ใช้สัญลักษณ์วงรีขีดเส้นใต้", isCorrect: false },
-                    { text: "เป็นข้อมูลที่มีหลายค่า ใช้สัญลักษณ์วงรีเส้นคู่", isCorrect: false }
-                ],
-                rationale: "Derived Attribute คือข้อมูลที่เกิดจากการนำข้อมูลอื่นมาคำนวณ (เช่น อายุ ได้มาจากวันเกิด) ใน ERD จะใช้สัญลักษณ์วงรีเส้นประ (Dashed Ellipse)"
-            },
-            {
-                question: "11. ข้อใดอธิบายลักษณะของ \"Weak Entity\" (เอนติตี้แบบอ่อน) ใน ER Model ได้ถูกต้องที่สุด?",
-                options: [
-                    { text: "เอนติตี้ที่ไม่จำเป็นต้องมีคีย์หลัก (Primary Key)", isCorrect: false },
-                    { text: "เอนติตี้ที่ไม่สามารถดำรงอยู่ได้ด้วยตนเอง ต้องอาศัยความสัมพันธ์กับ Strong Entity อื่น", isCorrect: true },
-                    { text: "เอนติตี้ที่มีแอตทริบิวต์เป็นแบบ Multi-valued เท่านั้น", isCorrect: false },
-                    { text: "เอนติตี้ที่ใช้แทนความสัมพันธ์แบบ M:N", isCorrect: false }
-                ],
-                rationale: "Weak Entity คือเอนติตี้ที่ไม่สามารถอยู่ตามลำพังในระบบได้ หากขาด Strong Entity หลักไป (เช่น ข้อมูลบุตรหลาน ต้องผูกกับข้อมูลพนักงานที่เป็นบิดามารดา)"
-            },
-            {
-                question: "12. หากต้องการแปลงความสัมพันธ์แบบ Many-to-Many (M:N) ระหว่างสองเอนติตี้ให้กลายเป็นระบบฐานข้อมูลเชิงสัมพันธ์ที่มีประสิทธิภาพ นักวิเคราะห์ระบบมักสร้างสิ่งใดขึ้นมาคั่นกลาง?",
-                options: [
-                    { text: "Sub-Entity", isCorrect: false },
-                    { text: "Composite Entity / Associative Entity (เอนติตี้เชิงความสัมพันธ์)", isCorrect: true },
-                    { text: "Derived Attribute", isCorrect: false },
-                    { text: "External Entity", isCorrect: false }
-                ],
-                rationale: "ในทางฐานข้อมูล ตารางไม่สามารถจัดเก็บความสัมพันธ์แบบ M:N ได้โดยตรง จึงต้องสร้างตารางกลางหรือ Composite/Associative Entity เพื่อเปลี่ยนความสัมพันธ์ให้กลายเป็น 1:N และ N:1 แทน"
-            },
-            {
-                question: "13. ข้อใดคือข้อดีที่เด่นชัดที่สุดของการพัฒนาโปรแกรมขึ้นเองภายในองค์กร (In-House Development)?",
-                options: [
-                    { text: "ใช้เวลาพัฒนาน้อยมากและต้นทุนต่ำกว่าซื้อโปรแกรมสำเร็จรูป", isCorrect: false },
-                    { text: "ตอบสนองความต้องการของผู้ใช้ได้สูงสุดและยืดหยุ่นต่อกระบวนการธุรกิจเฉพาะของตนเอง", isCorrect: true },
-                    { text: "ได้เอกสารประกอบระบบที่ได้มาตรฐานสากลทันที", isCorrect: false },
-                    { text: "ไม่จำเป็นต้องมีบุคลากรด้านไอทีประจำองค์กร", isCorrect: false }
-                ],
-                rationale: "ข้อดีสำคัญของ In-House Development คือซอฟต์แวร์ถูกออกแบบมาตรงตามเวิร์กโฟลว์และความต้องการขององค์กรมากที่สุด สามารถปรับแก้ไขเฉพาะทางได้ยืดหยุ่น"
-            },
-            {
-                question: "14. การเลือกใช้วิธีจัดหาอุปกรณ์ระบบด้วยการ \"เช่า (Rental)\" มีความเหมาะสมที่สุดกับสถานการณ์ใด?",
-                options: [
-                    { text: "ระบบงานที่ต้องการใช้เทคโนโลยีสูง มีการเปลี่ยนแปลงบ่อย และไม่ต้องการผูกพันกับภาระทรัพย์สินระยะยาว", isCorrect: true },
-                    { text: "ระบบงานที่ต้องการความเป็นเจ้าของและใช้งานต่อเนื่องยาวนานเกิน 10 ปี", isCorrect: false },
-                    { text: "ระบบงานขนาดเล็กที่มีงบประมาณจำกัดและต้องการซื้อขาดในครั้งเดียว", isCorrect: false },
-                    { text: "ระบบงานที่ต้องการความปลอดภัยสูงสุดโดยห้ามบุคคลภายนอกเข้าถึง", isCorrect: false }
-                ],
-                rationale: "การเช่า (Rental) เหมาะกับอุปกรณ์ที่เสื่อมราคาเร็วหรือเทคโนโลยีเปลี่ยนไว ทำให้องค์กรสามารถอัปเกรดรุ่นใหม่ได้ตลอดเวลาและไม่ต้องรับภาระค่าเสื่อมราคาเครื่อง"
-            },
-            {
-                question: "15. สถาปัตยกรรมเครือข่ายแบบใดที่ภาระงานประมวลผล (Processing Logic) และการจัดเก็บข้อมูลทั้งหมดตกอยู่ที่เครื่องแม่ข่ายขนาดใหญ่ (Host/Mainframe) โดยเครื่องลูกข่ายทำหน้าที่เป็นเพียงจอภาพและคีย์บอร์ด?",
-                options: [
-                    { text: "File-Server Architecture", isCorrect: false },
-                    { text: "Centralized Architecture (Host-Based)", isCorrect: true },
-                    { text: "Client-Server Architecture", isCorrect: false },
-                    { text: "Peer-to-Peer Architecture", isCorrect: false }
-                ],
-                rationale: "Centralized Architecture (หรือ Host-Based) จะให้เครื่องศูนย์กลาง (Mainframe) ทำหน้าที่ประมวลผลและจัดเก็บข้อมูลทั้งหมด โดยเครื่องปลายทางเป็นเพียง Dumb Terminal"
-            },
-            {
-                question: "16. เหตุใดในขั้นตอนการออกแบบระบบ จึงกำหนดให้นักวิเคราะห์ระบบต้องออกแบบเอาต์พุต (Output Design) ให้เสร็จสิ้นเสียก่อนที่จะลงมือออกแบบอินพุต (Input Design)?",
-                options: [
-                    { text: "เพราะรายงานเอาต์พุตจะเป็นตัวกำหนดและชี้ว่าระบบจำเป็นต้องใช้อินพุตข้อมูลใดบ้างมาร่วมประมวลผล", isCorrect: true },
-                    { text: "เพราะอินพุตมีความสำคัญน้อยกว่าและมักถูกเปลี่ยนแปลงบ่อย", isCorrect: false },
-                    { text: "เพื่อให้โปรแกรมเมอร์เขียนโค้ดหน้าจออินพุตได้ง่ายขึ้น", isCorrect: false },
-                    { text: "เพราะเป็นมาตรฐานบังคับของฮาร์ดแวร์", isCorrect: false }
-                ],
-                rationale: "การรู้ว่าผู้ใช้ต้องการเอาต์พุตหรือรายงานแบบไหน จะทำให้ SA ทราบล่วงหน้าว่าต้องจัดเก็บข้อมูลนำเข้า (Input) อะไรบ้าง เพื่อให้นำมาประมวลผลให้ได้ผลลัพธ์ตามต้องการ"
-            },
-            {
-                question: "17. การออกแบบส่วนติดต่อกับผู้ใช้ (User Interface) ที่ดีควรคำนึงถึงสิ่งใดเป็นสำคัญที่สุดเพื่อให้ผู้ใช้เรียนรู้ได้รวดเร็ว?",
-                options: [
-                    { text: "ใช้ตัวหนังสือภาษาอังกฤษทับศัพท์ทั้งหมดเพื่อความทันสมัย", isCorrect: false },
-                    { text: "ออกแบบให้ใช้งานง่าย สื่อความหมายชัดเจน มีความสม่ำเสมอ (Consistency) และสอดคล้องกับพฤติกรรมผู้ใช้", isCorrect: true },
-                    { text: "ซ่อนฟังก์ชันการทำงานที่ซับซ้อนไว้ไม่ให้ผู้ใช้เห็นเลย", isCorrect: false },
-                    { text: "กำหนดให้ผู้ใช้ต้องพิมพ์คำสั่งแบบ Text-based เสมอ", isCorrect: false }
-                ],
-                rationale: "หลักการ Usability & Consistency ในการออกแบบ UI จะช่วยให้ผู้ใช้งานเกิดความคุ้นเคย เรียนรู้ได้รวดเร็ว และลดข้อผิดพลาดในการป้อนข้อมูล"
-            },
-            {
-                question: "18. แผนภาพ Dialogue Diagram ประกอบด้วยองค์ประกอบสำคัญ 3 ส่วนในแต่ละกล่องหน้าจอเรียงจากบนลงล่างตามข้อใด?",
-                options: [
-                    { text: "ชื่อหน้าจอ, เลขลำดับหน้าจอ, ข้อมูลอินพุต", isCorrect: false },
-                    { text: "เลขลำดับหน้าจอ (Unique Reference), ชื่อหน้าจอ (Name/Description), เลขลำดับหน้าจอที่อ้างอิงมา/กลับ (Return References)", isCorrect: true },
-                    { text: "ชื่อฐานข้อมูล, ตารางที่เกี่ยวข้อง, สิทธิ์ผู้ใช้งาน", isCorrect: false },
-                    { text: "วันที่สร้าง, ผู้รับผิดชอบ, สถานะระบบ", isCorrect: false }
-                ],
-                rationale: "Dialogue Diagram แต่ละกล่องสี่เหลี่ยมจะมีโครงสร้างมาตรฐาน 3 ส่วน คือ 1. หมายเลขอ้างอิงหน้าจอ (Ref No.) 2. ชื่อหน้าจอ (Name) 3. หมายเลขหน้าจอที่จะเชื่อมโยงไปหรือกลับ (Return Ref)"
-            },
-            {
-                question: "19. เทคนิคการทดสอบซอฟต์แวร์แบบ \"White Box Testing\" แตกต่างจาก \"Black Box Testing\" อย่างไร?",
-                options: [
-                    { text: "White Box สนใจผลลัพธ์อินพุต/เอาต์พุต ส่วน Black Box ตรวจโค้ดภายใน", isCorrect: false },
-                    { text: "White Box ตรวจสอบตรรกะโค้ดและโครงสร้างโปรแกรมภายใน ส่วน Black Box สนใจทดสอบฟังก์ชันการทำงานโดยดูเฉพาะอินพุตและเอาต์พุต", isCorrect: true },
-                    { text: "White Box ทำโดยผู้ใช้จริง ส่วน Black Box ทำโดยโปรแกรมเมอร์เท่านั้น", isCorrect: false },
-                    { text: "ไม่มีข้อใดแตกต่างกัน เป็นชื่อเรียกเดียวกันในคนละตำรา", isCorrect: false }
-                ],
-                rationale: "White Box Testing คือการทดสอบโดยเห็นและตรวจสอบซอร์สโค้ดตรรกะภายใน ส่วน Black Box Testing จะทดสอบโดยไม่สนใจโค้ดภายใน แต่ดูว่าป้อน Input แล้วได้ Output ตรงตาม Specification หรือไม่"
-            },
-            {
-                question: "20. ขั้นตอนการทดสอบระบบ (Stages of Tests) ลำดับใดที่ถูกต้องตามหลักกระบวนการพัฒนาซอฟต์แวร์ก่อนนำไปใช้งานจริง?",
-                options: [
-                    { text: "System Testing -> Unit Testing -> Acceptance Testing -> Integration Testing", isCorrect: false },
-                    { text: "Unit Testing -> Integration Testing -> System Testing -> Acceptance Testing", isCorrect: true },
-                    { text: "Acceptance Testing -> System Testing -> Integration Testing -> Unit Testing", isCorrect: false },
-                    { text: "Integration Testing -> Unit Testing -> Acceptance Testing -> System Testing", isCorrect: false }
-                ],
-                rationale: "การทดสอบที่ถูกต้องเรียงจากเล็กไปใหญ่: 1. Unit Test (ทดสอบโค้ดย่อย) -> 2. Integration Test (ทดสอบโมดูลเชื่อมต่อกัน) -> 3. System Test (ทดสอบระบบรวม) -> 4. Acceptance Test (ผู้ใช้ทดสอบยอมรับ)"
-            },
-            {
-                question: "21. วิธีการติดตั้งระบบใหม่ (Installation Method) แบบใดที่มี \"ความปลอดภัยสูงสุด (เสี่ยงต่ำที่สุด)\" แต่มี \"ค่าใช้จ่ายสูงและยุ่งยากที่สุด\"?",
-                options: [
-                    { text: "Direct Installation", isCorrect: false },
-                    { text: "Parallel Installation", isCorrect: true },
-                    { text: "Phased Installation", isCorrect: false },
-                    { text: "Pilot Project", isCorrect: false }
-                ],
-                rationale: "Parallel Installation คือการรันระบบเก่าและระบบใหม่ควบคู่กันไป ปลอดภัยที่สุดเพราะถ้าระบบใหม่พังก็ยังมีระบบเก่าสำรอง แต่เปลืองทรัพยากรและแรงงานซ้ำซ้อนที่สุด"
-            },
-            {
-                question: "22. หากองค์กรขนาดเล็กมีงบประมาณจำกัด ระบบงานใหม่มีความแตกต่างจากระบบเดิมอย่างสิ้นเชิง และผู้บริหารตัดสินใจ \"ยกเลิกระบบเดิมแล้วเปิดใช้ระบบใหม่ทันทีในวันเดียว\" วิธีนี้คืออะไรและมีความเสี่ยงอย่างไร?",
-                options: [
-                    { text: "Parallel Installation - เสี่ยงเรื่องค่าใช้จ่ายสูง", isCorrect: false },
-                    { text: "Direct Installation (Immediate Cutover) - เสี่ยงสูงมากหากเกิดข้อผิดพลาดที่คาดไม่ถึง", isCorrect: true },
-                    { text: "Phased Installation - เสี่ยงเรื่องใช้เวลานานเกินไป", isCorrect: false },
-                    { text: "Pilot Project - เสี่ยงเรื่องระบบไม่ครอบคลุมทุกแผนก", isCorrect: false }
-                ],
-                rationale: "Direct Installation เป็นการตัดเปลี่ยนระบบทันที ประหยัดเงินและรวดเร็ว แต่มีความเสี่ยงสูงที่สุดเพราะหากระบบใหม่ล้มเหลวจะไม่มีระบบสำรองรองรับการทำงาน"
-            },
-            {
-                question: "23. การติดตั้งระบบแบบ \"Pilot Project\" มีลักษณะการดำเนินการอย่างไร?",
-                options: [
-                    { text: "ติดตั้งและใช้งานระบบใหม่พร้อมกับระบบเดิมทุกสาขาพร้อมกัน", isCorrect: false },
-                    { text: "ทยอยติดตั้งทีละโมดูลทีละเฟสจนครบ", isCorrect: false },
-                    { text: "นำระบบใหม่ไปติดตั้งและทดลองใช้เฉพาะกับหน่วยงานหรือส่วนงานนำร่องก่อนเพื่อประเมินผล", isCorrect: true },
-                    { text: "จ้างบริษัทภายนอกมาติดตั้งให้ทั้งหมดทันที", isCorrect: false }
-                ],
-                rationale: "Pilot Project (การนำร่อง) คือการเลือกลองใช้งานระบบใหม่กับสาขาหรือแผนกตัวอย่างก่อน หากทำงานได้ราบรื่นและไม่มีปัญหาก็จึงค่อยนำไปติดตั้งใช้ทั้งองค์กร"
-            },
-            {
-                question: "24. เอกสารคู่มือระบบ (System Documentation) แตกต่างจากคู่มือผู้ใช้ (User Documentation) ตรงที่คู่มือระบบมุ่งเน้นสิ่งใด?",
-                options: [
-                    { text: "อธิบายวิธีคลิกเมาส์และกรอกฟอร์มสมัครสมาชิกสำหรับลูกค้าทั่วไป", isCorrect: false },
-                    { text: "อธิบายวิธีจัดการแอปพลิเคชันซอฟต์แวร์ การสำรองข้อมูล การกู้คืนระบบ และรายละเอียดเชิงเทคนิคสำหรับนักพัฒนาระบบและผู้ดูแลระบบ", isCorrect: true },
-                    { text: "อธิบายเนื้อหาบทเรียนฝึกอบรม (Tutorials)", isCorrect: false },
-                    { text: "แสดงภาพหน้าจอหลักของเว็บไซต์สำหรับผู้ใช้งานทั่วไป", isCorrect: false }
-                ],
-                rationale: "System Documentation ถูกเขียนขึ้นสำหรับโปรแกรมเมอร์และ Admin โดยอธิบายโครงสร้างโค้ด ฐานข้อมูล และการบำรุงรักษาระบบ ส่วน User Documentation จะอธิบายวิธีการใช้งานสำหรับผู้ใช้ทั่วไป"
-            },
-            {
-                question: "25. ในกระบวนการฝึกอบรม (Training) การอบรมประเภท \"Operator Training\" จะต้องมุ่งเน้นเนื้อหาไปที่เรื่องใดเป็นหลัก?",
-                options: [
-                    { text: "หน้าที่การทำกิจกรรมธุรกิจประจำวันของพนักงานทั่วไป", isCorrect: false },
-                    { text: "หน้าที่การสนับสนุนระบบ การสำรองข้อมูล (Backup) และการกู้คืนไฟล์ข้อมูล (Recovery)", isCorrect: true },
-                    { text: "วิธีการวิเคราะห์ความต้องการของลูกค้า", isCorrect: false },
-                    { text: "การออกแบบฐานข้อมูลเชิงสัมพันธ์", isCorrect: false }
-                ],
-                rationale: "Operator Training มุ่งเน้นไปที่กลุ่มผู้ดูแลระบบและฝ่ายไอที เพื่อให้เรียนรู้วิธีเดินเครื่องเซิร์ฟเวอร์ การสำรองข้อมูล (Backup) และการแก้ปัญหาระบบเบื้องหลัง"
-            },
-            {
-                question: "26. การประเมินผลระบบ (System Evaluation) หลังจากติดตั้งและใช้งานจริง ควรดำเนินการในช่วงเวลาใดจึงจะสะท้อนประสิทธิภาพที่แท้จริงได้ดีที่สุด?",
-                options: [
-                    { text: "ทันทีในชั่วโมงแรกของการเปิดระบบ", isCorrect: false },
-                    { text: "ภายหลังการติดตั้งและใช้งานไปแล้วประมาณ 6 – 9 เดือน", isCorrect: true },
-                    { text: "ก่อนส่งมอบงาน 1 สัปดาห์", isCorrect: false },
-                    { text: "หลังจากใช้งานครบ 5 ปีเต็ม", isCorrect: false }
-                ],
-                rationale: "การประเมินผลหลังการใช้งานจริง (Post-Implementation Review) ควรทำเมื่อใช้งานไปแล้วประมาณ 6-9 เดือน เพื่อให้ผู้ใช้คุ้นเคยกับระบบ และเห็นปัญหาและผลลัพธ์ของระบบจริงชัดเจน"
-            },
-            {
-                question: "27. การบำรุงรักษาระบบ (Systems Maintenance) ประเภท \"Adaptive Maintenance\" หมายถึงข้อใด?",
-                options: [
-                    { text: "การแก้ไขข้อผิดพลาด (Bug) ที่ผู้ใช้พบเจอประจำวัน", isCorrect: false },
-                    { text: "การปรับปรุงระบบให้รองรับสภาพแวดล้อมใหม่ เช่น การเปลี่ยนรุ่น OS หรือกฎหมายภาษีใหม่", isCorrect: true },
-                    { text: "การเพิ่มฟีเจอร์ใหม่ๆ เพื่อเพิ่มประสิทธิภาพการทำงาน", isCorrect: false },
-                    { text: "การตรวจสอบป้องกันฮาร์ดแวร์เสื่อมสภาพ", isCorrect: false }
-                ],
-                rationale: "Adaptive Maintenance คือการปรับแต่งแก้ไขระบบเพื่อให้ทำงานต่อไปได้ในสภาพแวดล้อมใหม่ที่เปลี่ยนไป เช่น เปลี่ยน OS ใหม่ เปลี่ยนฐานข้อมูล หรือปรับตามกฎหมายใหม่"
-            },
-            {
-                question: "28. หากผู้ใช้งานระบบแจ้งว่าพบข้อผิดพลาด (Bug) ในการคำนวณส่วนลดสินค้า และโปรแกรมเมอร์ต้องเข้ามาแก้ไขโค้ดทันที การกระทำนี้จัดเป็นการบำรุงรักษาประเภทใด?",
-                options: [
-                    { text: "Corrective Maintenance", isCorrect: true },
-                    { text: "Adaptive Maintenance", isCorrect: false },
-                    { text: "Perfective Maintenance", isCorrect: false },
-                    { text: "Preventive Maintenance", isCorrect: false }
-                ],
-                rationale: "Corrective Maintenance คือการบำรุงรักษาเพื่อแก้ไขข้อผิดพลาด (Bugs หรือ Errors) ของซอฟต์แวร์ที่ตรวจพบระหว่างการใช้งาน"
-            },
-            {
-                question: "29. บทบาทหน้าที่หลักของ \"นักวิเคราะห์ระบบ (System Analyst)\" ข้อใดมีความสำคัญสูงสุดในการเชื่อมโยงบุคคลกลุ่มต่างๆ ในโครงการ?",
-                options: [
-                    { text: "เป็นผู้เขียนโค้ดภาษา Java และ C# ทั้งหมดด้วยตนเอง", isCorrect: false },
-                    { text: "เป็นตัวกลางประสานงานและแปลความต้องการระหว่าง System Owners, Users และ System Builders", isCorrect: true },
-                    { text: "เป็นผู้ควบคุมงบประมาณการเงินและจัดซื้อที่ดินของบริษัท", isCorrect: false },
-                    { text: "เป็นผู้ตรวจสอบระบบเครือข่ายอินเทอร์เน็ตของออฟฟิศ", isCorrect: false }
-                ],
-                rationale: "หัวใจสำคัญของ System Analyst (SA) คือการทำหน้าที่เป็นตัวกลางและสื่อกลาง (Communicator) แปลงความต้องการทางธุรกิจของฝ่ายผู้ใช้ ให้กลายเป็นข้อกำหนดทางเทคนิคที่โปรแกรมเมอร์นำไปพัฒนาได้"
-            },
-            {
-                question: "30. ข้อใดอธิบายถึง \"สาเหตุหลัก\" ที่มักทำให้โครงการพัฒนาระบบสารสนเทศล้มเหลวมากที่สุด?",
-                options: [
-                    { text: "การเลือกใช้ภาษาโปรแกรมที่ทันสมัยเกินไป", isCorrect: false },
-                    { text: "การกำหนดขอบเขตปัญหา (Scope) ไม่ชัดเจน และความต้องการของผู้ใช้เปลี่ยนแปลงตลอดเวลาโดยไม่มีการควบคุม", isCorrect: true },
-                    { text: "การใช้กระดาษจดบันทึกเอกสารมากเกินไป", isCorrect: false },
-                    { text: "การมีบุคลากรในทีมพัฒนาน้อยกว่า 2 คน", isCorrect: false }
-                ],
-                rationale: "สาเหตุหลักอันดับต้นๆ ของความล้มเหลวในโครงการพัฒนาซอฟต์แวร์คือ การบริหารขอบเขตงานไม่ดี เกิด Scope Creep และความต้องการที่ไม่ชัดเจนหรือไม่นิ่ง"
-            },
-            {
-                question: "31. ในการวิเคราะห์ข้อกำหนดความต้องการ ข้อใดคือประโยชน์หลักของการจัดทำ \"Data Dictionary\" (พจนานุกรมข้อมูล)?",
-                options: [
-                    { text: "ใช้เป็นพจนานุกรมแปลคำศัพท์ภาษาอังกฤษเป็นภาษาไทยสำหรับโปรแกรมเมอร์", isCorrect: false },
-                    { text: "ใช้รวบรวมและนิยามความหมาย โครงสร้าง และชนิดข้อมูลของ Data Flow, Data Store ทุกตัวในระบบให้ตรงกัน", isCorrect: true },
-                    { text: "ใช้กำหนดราคาค่าจ้างพัฒนาระบบของบริษัท Outsource", isCorrect: false },
-                    { text: "ใช้ตรวจสอบความเร็วของอินเทอร์เน็ตในองค์กร", isCorrect: false }
-                ],
-                rationale: "Data Dictionary เป็นศูนย์รวบรวมคำอธิบายรายละเอียดข้อมูลทั้งหมดในระบบ เพื่อให้ผู้เกี่ยวข้องเข้าใจความหมาย โครงสร้าง และชนิดของข้อมูลตรงกัน"
-            },
-            {
-                question: "32. หากต้องการวิเคราะห์ตรรกะและการตัดสินใจที่ซับซ้อนซึ่งมีหลายเงื่อนไขซ้อนกัน เครื่องมือใดในขั้นตอนการวิเคราะห์เชิงตรรกะที่เหมาะสมที่สุด?",
-                options: [
-                    { text: "Decision Table / Decision Tree (ตารางตัดสินใจหรือผังต้นไม้)", isCorrect: true },
-                    { text: "Gantt Chart", isCorrect: false },
-                    { text: "Organization Chart", isCorrect: false },
-                    { text: "Screen Layout", isCorrect: false }
-                ],
-                rationale: "Decision Table และ Decision Tree เป็นเครื่องมือที่ใช้แสดงทางเลือกและตรรกะการตัดสินใจที่มีเงื่อนไข (Conditions) และการกระทำ (Actions) ซับซ้อนได้อย่างชัดเจน"
-            },
-            {
-                question: "33. ข้อใดคือความเสี่ยงหลักของการเลือกใช้วิธีพัฒนาแบบ Outsource ในการสร้างระบบสารสนเทศขององค์กร?",
-                options: [
-                    { text: "พนักงานภายในองค์กรจะมีความสุขเกินไปจนไม่ทำงาน", isCorrect: false },
-                    { text: "เสี่ยงต่อการรั่วไหลของความลับทางธุรกิจ และองค์กรต้องพึ่งพาผู้ให้บริการภายนอกในระยะยาว", isCorrect: true },
-                    { text: "ได้รับระบบที่ทำงานเร็วกว่ากำหนดมากเกินไป", isCorrect: false },
-                    { text: "ประหยัดงบประมาณจนเกินไปทำให้บริษัทล้มละลาย", isCorrect: false }
-                ],
-                rationale: "การจัดจ้างภายนอก (Outsourcing) มีความเสี่ยงสำคัญคือความลับทางธุรกิจอาจรั่วไหล และเกิดสภาวะ Vendor Lock-in ที่ต้องพึ่งพาผู้ให้บริการภายนอกตลอดเวลา"
-            },
-            {
-                question: "34. ในการออกแบบสถาปัตยกรรมระบบแบบ Client-Server หากแบ่งการทำงานออกเป็นชั้น (Tiers) ข้อใดกล่าวถึงข้อดีของ 3-Tier Architecture ได้ถูกต้อง?",
-                options: [
-                    { text: "รวมทุกฟังก์ชันไว้ที่เครื่องเดียวทำให้ดูแลรักษาง่าย", isCorrect: false },
-                    { text: "แยก Presentation, Application Logic และ Database ออกจากกัน ทำให้ระบบยืดหยุ่น ขยายระบบ (Scalable) และบำรุงรักษาง่ายขึ้น", isCorrect: true },
-                    { text: "ไม่จำเป็นต้องใช้ระบบเครือข่ายคอมพิวเตอร์", isCorrect: false },
-                    { text: "ประหยัดค่าใช้จ่ายฮาร์ดแวร์มากที่สุด", isCorrect: false }
-                ],
-                rationale: "3-Tier Architecture แยกการทำงานเป็น 3 ชั้น (ส่วนแสดงผล, ส่วนประมวลผลธุรกิจ, ส่วนจัดการข้อมูล) ทำให้สามารถแก้ไขหรือปรับขยายแต่ละส่วนได้โดยไม่กระทบส่วนอื่น"
-            },
-            {
-                question: "35. ข้อใดคือเป้าหมายหลักของการทำ \"Data Validation\" ในกระบวนการออกแบบส่วนนำเข้าข้อมูล (Input Design)?",
-                options: [
-                    { text: "ตรวจสอบความถูกต้อง ครบถ้วน และความสมเหตุสมผลของข้อมูลก่อนบันทึกลงฐานข้อมูลเพื่อป้องกันข้อมูลขยะ (Garbage In, Garbage Out)", isCorrect: true },
-                    { text: "เร่งความเร็วในการพิมพ์คีย์บอร์ดของผู้ใช้งาน", isCorrect: false },
-                    { text: "ตรวจสอบความสวยงามของสีสันหน้าจออินเทอร์เฟซ", isCorrect: false },
-                    { text: "ลดจำนวนบรรทัดของซอร์สโค้ดภาษาโปรแกรม", isCorrect: false }
-                ],
-                rationale: "Data Validation ช่วยตรวจสอบว่าข้อมูลที่กรอกเข้ามาถูกต้องตามรูปแบบหรือไม่ ก่อนถูกบันทึกเข้าฐานข้อมูล เพื่อป้องกันปัญหา Garbage In, Garbage Out"
-            },
-            {
-                question: "36. ในขั้นตอนการเขียนโปรแกรม (Coding) ตามวงจร SDLC ใครคือผู้รับผิดชอบหลัก และต้องใช้เอกสารใดเป็นแนวทางอ้างอิงสำคัญที่สุด?",
-                options: [
-                    { text: "นักวิเคราะห์ระบบ - ใช้เอกสารศึกษาความเป็นไปได้", isCorrect: false },
-                    { text: "โปรแกรมเมอร์ - ใช้เอกสารการวิเคราะห์และออกแบบระบบ (เช่น DFD, ERD, Process Spec, Report Layout) ที่จัดทำโดย SA", isCorrect: true },
-                    { text: "ผู้บริหาร - ใช้เอกสารงบประมาณ", isCorrect: false },
-                    { text: "ลูกค้า - ใช้คู่มือการใช้งาน", isCorrect: false }
-                ],
-                rationale: "โปรแกรมเมอร์จะนำข้อกำหนดเชิงเทคนิคและแผนภาพออกแบบ (System Specifications) ที่ SA จัดทำไว้มาแปลงเป็นคำสั่งซอร์สโค้ดในโปรแกรม"
-            },
-            {
-                question: "37. การทดสอบแบบ \"Alpha Testing\" มีความแตกต่างจากการทดสอบแบบอื่นๆ อย่างไร?",
-                options: [
-                    { text: "เป็นการทดสอบโดยจำลองสภาพแวดล้อมเสมือนจริงภายในทีมพัฒนาหรือบริษัทผู้ผลิตก่อนส่งมอบ", isCorrect: true },
-                    { text: "เป็นการทดสอบโดยให้ลูกค้าใช้งานจริงบนอินเทอร์เน็ตสาธารณะทันที", isCorrect: false },
-                    { text: "เป็นการทดสอบเฉพาะระบบเครือข่ายไร้สาย", isCorrect: false },
-                    { text: "เป็นการทดสอบโดยไม่ใช้ข้อมูลใดๆ เลย", isCorrect: false }
-                ],
-                rationale: "Alpha Testing เป็นการทดสอบขั้นยอมรับโดยจำลองสถานการณ์การใช้งานจริงภายในองค์กรผู้พัฒนาซอฟต์แวร์ ก่อนที่จะปล่อยออกไปทดสอบภายนอก (Beta Testing)"
-            },
-            {
-                question: "38. ข้อใดจัดเป็นตัวอย่างของ \"Perfective Maintenance\" ในกระบวนการบำรุงรักษาระบบ?",
-                options: [
-                    { text: "แก้ไขบั๊กหน้าจอเข้าสู่ระบบล่ม", isCorrect: false },
-                    { text: "ปรับปรุงระบบให้รองรับระบบปฏิบัติการ Windows รุ่นใหม่", isCorrect: false },
-                    { text: "เพิ่มฟีเจอร์การสร้างรายงานกราฟแท่งแบบใหม่ตามคำขอเพิ่มเติมของผู้ใช้เพื่อเพิ่มประสิทธิภาพการทำงาน", isCorrect: true },
-                    { text: "เปลี่ยนฮาร์ดแวร์เซิร์ฟเวอร์ที่ไหม้เสียหาย", isCorrect: false }
-                ],
-                rationale: "Perfective Maintenance คือการปรับปรุงหรือเพิ่มประสิทธิภาพ ฟังก์ชันการทำงานใหม่ๆ ตามความต้องการเพิ่มเติมของผู้ใช้ เพื่อให้ระบบสมบูรณ์แบบยิ่งขึ้น"
-            },
-            {
-                question: "39. ในกรณีที่ระบบงานมีขนาดใหญ่มาก การเลือกใช้วิธีติดตั้งแบบ \"Phased Installation\" มีข้อดีสำคัญอย่างไร?",
-                options: [
-                    { text: "ติดตั้งเสร็จภายใน 1 วันและมีค่าใช้จ่ายต่ำที่สุด", isCorrect: false },
-                    { text: "ทยอยติดตั้งทีละส่วนหรือทีละโมดูล ช่วยลดผลกระทบต่อองค์กรและช่วยให้ทยอยชำระค่าใช้จ่ายเป็นระยะได้", isCorrect: true },
-                    { text: "ไม่ต้องมีการฝึกอบรมผู้ใช้งานเลย", isCorrect: false },
-                    { text: "มีความปลอดภัยสูงเท่ากับการทำ Parallel ทุกประการ", isCorrect: false }
-                ],
-                rationale: "Phased Installation เป็นการแบ่งระบบเป็นส่วนย่อยแล้วทยอยติดตั้งทีละโมดูล ช่วยให้ผู้ใช้ค่อยๆ ปรับตัว และลดความเสี่ยงภาพรวมขององค์กรลงได้"
-            },
-            {
-                question: "40. ข้อใดคือความหมายที่แท้จริงของแนวคิด \"Never Die Cycle\" ในวงจรการพัฒนาระบบ (SDLC)?",
-                options: [
-                    { text: "ระบบคอมพิวเตอร์จะไม่เคยพังเสียหายตลอดไป", isCorrect: false },
-                    { text: "วงจรการพัฒนาระบบไม่มีวันสิ้นสุด เพราะระบบต้องมีการปรับปรุงและพัฒนาอย่างต่อเนื่องตามความต้องการใหม่ๆ ของธุรกิจ", isCorrect: true },
-                    { text: "โครงการพัฒนาซอฟต์แวร์จะไม่เคยถูกยกเลิกกลางคัน", isCorrect: false },
-                    { text: "โปรแกรมเมอร์ทุกคนจะมีงานทำตลอดชีวิต", isCorrect: false }
-                ],
-                rationale: "Never Die Cycle สะท้อนว่าวงจร SDLC ไม่มีวันสิ้นสุด เมื่อระบบใช้งานไประยะหนึ่ง จะเกิดความต้องการใหม่ๆ นำไปสู่การปรับปรุงหรือพัฒนาระบบใหม่ทดแทน วนลูปต่อเนื่องเรื่อยๆ"
+            2: {
+                title: "ชุดที่ 2: การวิเคราะห์และพัฒนาระบบสารสนเทศ",
+                questions: [
+                    {
+                        question: "1. นักวิเคราะห์ระบบมีบทบาทสำคัญอย่างไร?",
+                        options: [
+                            { text: "ก. เขียนโปรแกรมเพียงอย่างเดียว", isCorrect: false, rationale: "การเขียนโปรแกรมเป็นบทบาทหลักของโปรแกรมเมอร์" },
+                            { text: "ข. เป็นตัวกลางระหว่างผู้ใช้กับทีมพัฒนาระบบ", isCorrect: true, rationale: "เฉลย: ข. นักวิเคราะห์ระบบทำหน้าที่แปลความต้องการของผู้ใช้ให้เป็นข้อกำหนดทางเทคนิคสำหรับทีมพัฒนา" },
+                            { text: "ค. ดูแลเฉพาะฮาร์ดแวร์", isCorrect: false, rationale: "เป็นหน้าที่ของช่างเทคนิคหรือผู้ดูแลระบบเครือข่าย" },
+                            { text: "ง. จัดทำบัญชีขององค์กร", isCorrect: false, rationale: "เป็นหน้าที่ของฝ่ายบัญชี" }
+                        ]
+                    },
+                    {
+                        question: "2. เป้าหมายสำคัญของการวิเคราะห์ระบบคืออะไร?",
+                        options: [
+                            { text: "ก. ซื้อคอมพิวเตอร์ใหม่", isCorrect: false, rationale: "การจัดซื้ออุปกรณ์เป็นเพียงส่วนหนึ่งของเทคโนโลยี" },
+                            { text: "ข. เพิ่มจำนวนพนักงาน", isCorrect: false, rationale: "ไม่ใช่เป้าหมายของการพัฒนาระบบสารสนเทศ" },
+                            { text: "ค. ค้นหาปัญหาและความต้องการของระบบ", isCorrect: true, rationale: "เฉลย: ค. การวิเคราะห์ระบบมีเป้าหมายเพื่อทำความเข้าใจปัญหาและรวบรวมความต้องการที่แท้จริง" },
+                            { text: "ง. ลดจำนวนข้อมูลในองค์กร", isCorrect: false, rationale: "ไม่ใชเป้าหมายหลักในการวิเคราะห์ระบบ" }
+                        ]
+                    },
+                    {
+                        question: "3. หากองค์กรมีปัญหาการทำงานล่าช้า นักวิเคราะห์ระบบควรทำสิ่งใด?",
+                        options: [
+                            { text: "ก. ยกเลิกระบบเดิมทันที", isCorrect: false, rationale: "การยกเลิกทันทีโดยไม่ศึกษาอาจทำให้ธุรกิจหยุดชะงัก" },
+                            { text: "ข. ศึกษาและวิเคราะห์ปัญหาของระบบเดิม", isCorrect: true, rationale: "เฉลย: ข. นักวิเคราะห์ระบบต้องเริ่มต้นจากการศึกษาและวิเคราะห์ระบบปัจจุบันเพื่อหาสาเหตุของปัญหา" },
+                            { text: "ค. ซื้อซอฟต์แวร์ใหม่ทันที", isCorrect: false, rationale: "ไม่ควรซื้อซอฟต์แวร์ใหม่โดยยังไม่ทราบปัญหาที่แท้จริง" },
+                            { text: "ง. เปลี่ยนพนักงานทั้งหมด", isCorrect: false, rationale: "ไม่ใช่แนวทางแก้ไขปัญหาทางระบบสารสนเทศ" }
+                        ]
+                    },
+                    {
+                        question: "4. ข้อใดเป็นทักษะที่นักวิเคราะห์ระบบควรมี?",
+                        options: [
+                            { text: "ก. การวิเคราะห์และแก้ปัญหา", isCorrect: true, rationale: "เฉลย: ก. นักวิเคราะห์ระบบต้องมีทักษะในการคิดเชิงวิเคราะห์และการแก้ปัญหาอย่างเป็นระบบ" },
+                            { text: "ข. การซ่อมเครื่องใช้ไฟฟ้า", isCorrect: false, rationale: "ไม่ใช่ทักษะหลักของ SA" },
+                            { text: "ค. การวาดภาพเท่านั้น", isCorrect: false, rationale: "ไม่ใช่ทักษะหลักของ SA" },
+                            { text: "ง. การเล่นดนตรี", isCorrect: false, rationale: "ไม่เกี่ยวข้องกับงานวิเคราะห์ระบบ" }
+                        ]
+                    },
+                    {
+                        question: "5. นักวิเคราะห์ระบบควรให้ความสำคัญกับสิ่งใดในการพัฒนาระบบ?",
+                        options: [
+                            { text: "ก. ความต้องการของผู้ใช้", isCorrect: true, rationale: "เฉลย: ก. ความต้องการของผู้ใช้ (User Requirements) คือหัวใจสำคัญของระบบที่จะพัฒนาขึ้น" },
+                            { text: "ข. ราคาคอมพิวเตอร์ที่แพงที่สุด", isCorrect: false, rationale: "ของแพงที่สุดอาจไม่สอดคล้องกับความต้องการจริง" },
+                            { text: "ค. จำนวนพนักงาน", isCorrect: false, rationale: "ไม่ใช่ปัจจัยหลักในการพิจารณา" },
+                            { text: "ง. รูปลักษณ์ของสำนักงาน", isCorrect: false, rationale: "ไม่เกี่ยวข้องกับระบบสารสนเทศ" }
+                        ]
+                    },
+                    {
+                        question: "6. SDLC ย่อมาจากอะไร?",
+                        options: [
+                            { text: "ก. System Data Learning Cycle", isCorrect: false, rationale: "ตัวย่อไม่ถูกต้อง" },
+                            { text: "ข. System Development Life Cycle", isCorrect: true, rationale: "เฉลย: ข. SDLC ย่อมาจาก System Development Life Cycle (วงจรการพัฒนาระบบ)" },
+                            { text: "ค. Software Design Life Control", isCorrect: false, rationale: "ตัวย่อไม่ถูกต้อง" },
+                            { text: "ง. System Database Learning Center", isCorrect: false, rationale: "ตัวย่อไม่ถูกต้อง" }
+                        ]
+                    },
+                    {
+                        question: "7. Feasibility Study มีจุดประสงค์หลักคืออะไร?",
+                        options: [
+                            { text: "ก. เขียนโปรแกรม", isCorrect: false, rationale: "เป็นขั้นตอนในส่วน Coding" },
+                            { text: "ข. ศึกษาความเป็นไปได้ของโครงการ", isCorrect: true, rationale: "เฉลย: ข. Feasibility Study คือการศึกษาความเป็นไปได้ของโครงการก่อนตัดสินใจลงทุนพัฒนา" },
+                            { text: "ค. ติดตั้งระบบ", isCorrect: false, rationale: "เป็นขั้นตอน Installation" },
+                            { text: "ง. ฝึกอบรมผู้ใช้", isCorrect: false, rationale: "เป็นขั้นตอน Training" }
+                        ]
+                    },
+                    {
+                        question: "8. ข้อใดเป็นขั้นตอนหนึ่งของวงจรการพัฒนาระบบ?",
+                        options: [
+                            { text: "ก. Analysis", isCorrect: true, rationale: "เฉลย: ก. Analysis (การวิเคราะห์) เป็นขั้นตอนสำคัญหลักในวงจร SDLC" },
+                            { text: "ข. Advertising", isCorrect: false, rationale: "เป็นเรื่องของการโฆษณา" },
+                            { text: "ค. Accounting", isCorrect: false, rationale: "เป็นเรื่องของงานบัญชี" },
+                            { text: "ง. Marketing", isCorrect: false, rationale: "เป็นเรื่องของการตลาด" }
+                        ]
+                    },
+                    {
+                        question: "9. Adapted Waterfall แตกต่างจาก Waterfall อย่างไร?",
+                        options: [
+                            { text: "ก. ไม่มีขั้นตอนการวิเคราะห์", isCorrect: false, rationale: "มีขั้นตอนการวิเคราะห์ตามปกติ" },
+                            { text: "ข. สามารถย้อนกลับไปแก้ไขขั้นตอนก่อนหน้าได้", isCorrect: true, rationale: "เฉลย: ข. Adapted Waterfall ปรับปรุงให้ย้อนกลับ (Feedback Loop) ไปแก้ไขขั้นตอนที่ผ่านมาได้" },
+                            { text: "ค. ไม่มีขั้นตอนการออกแบบ", isCorrect: false, rationale: "มีขั้นตอนการออกแบบตามปกติ" },
+                            { text: "ง. ไม่มีการทดสอบระบบ", isCorrect: false, rationale: "มีการทดสอบระบบตามปกติ" }
+                        ]
+                    },
+                    {
+                        question: "10. เหตุใด SDLC จึงเรียกว่าเป็นวงจร?",
+                        options: [
+                            { text: "ก. เพราะมีการพัฒนาระบบเพียงครั้งเดียว", isCorrect: false, rationale: "หากทำครั้งเดียวจะไม่เรียกว่าเป็นวงจร" },
+                            { text: "ข. เพราะเมื่อระบบใช้งานแล้วสามารถเกิดการปรับปรุงและพัฒนาต่อได้", isCorrect: true, rationale: "เฉลย: ข. เมื่อระบบใช้งานและเสื่อมสภาพลง ก็จะวนกลับเข้าสู่กระบวนการวิเคราะห์เพื่อพัฒนาระบบใหม่อีกครั้ง" },
+                            { text: "ค. เพราะไม่ต้องบำรุงรักษา", isCorrect: false, rationale: "ระบบสารสนเทศต้องมีการบำรุงรักษาเสมอ" },
+                            { text: "ง. เพราะไม่มีจุดสิ้นสุดของการเขียนโปรแกรม", isCorrect: false, rationale: "ไม่ถูกต้องตามหลักการพัฒนา" }
+                        ]
+                    },
+                    {
+                        question: "11. Logical Model มีลักษณะอย่างไร?",
+                        options: [
+                            { text: "ก. เน้นเทคโนโลยีที่ใช้จริง", isCorrect: false, rationale: "นั่นคือคุณลักษณะของ Physical Model" },
+                            { text: "ข. ไม่ขึ้นกับเทคโนโลยีใดโดยเฉพาะ", isCorrect: true, rationale: "เฉลย: ข. Logical Model อธิบายกระบวนการและตรรกะของระบบโดยไม่อิงกับฮาร์ดแวร์หรือซอฟต์แวร์เฉพาะ" },
+                            { text: "ค. ใช้เฉพาะฮาร์ดแวร์", isCorrect: false, rationale: "ไม่ใช่มิติของ Logical Model" },
+                            { text: "ง. ใช้เฉพาะตอนติดตั้งระบบ", isCorrect: false, rationale: "ใช้ในขั้นตอนการวิเคราะห์และออกแบบเชิงตรรกะ" }
+                        ]
+                    },
+                    {
+                        question: "12. ข้อใดเป็นตัวอย่างของ Logical Model?",
+                        options: [
+                            { text: "ก. Data Flow Diagram", isCorrect: true, rationale: "เฉลย: ก. DFD เป็นแบบจำลองเชิงตรรกะที่แสดงการไหลของข้อมูลโดยไม่อิงเทคโนโลยี" },
+                            { text: "ข. Hard Disk", isCorrect: false, rationale: "เป็นอุปกรณ์ฮาร์ดแวร์จริง" },
+                            { text: "ค. Network Cable", isCorrect: false, rationale: "เป็นอุปกรณ์ฮาร์ดแวร์จริง" },
+                            { text: "ง. Server", isCorrect: false, rationale: "เป็นเครื่องคอมพิวเตอร์จริง" }
+                        ]
+                    },
+                    {
+                        question: "13. Physical Model แตกต่างจาก Logical Model อย่างไร?",
+                        options: [
+                            { text: "ก. เน้นรายละเอียดการนำระบบไปใช้งานจริง", isCorrect: true, rationale: "เฉลย: ก. Physical Model เจาะจงเรื่องเทคโนโลยี ฮาร์ดแวร์ ฐานข้อมูล และการปฏิบัติงานจริง" },
+                            { text: "ข. ไม่เกี่ยวข้องกับเทคโนโลยี", isCorrect: false, rationale: "Physical Model เกี่ยวข้องกับเทคโนโลยีโดยตรง" },
+                            { text: "ค. ใช้เฉพาะการวิเคราะห์", isCorrect: false, rationale: "ใช้ในขั้นตอนการออกแบบและนำไปใช้จริง" },
+                            { text: "ง. ใช้เฉพาะการเก็บข้อมูล", isCorrect: false, rationale: "ใช้แสดงภาพรวมการทำงานจริงทั้งหมด" }
+                        ]
+                    },
+                    {
+                        question: "14. Block Diagram ใช้สำหรับอะไร?",
+                        options: [
+                            { text: "ก. แสดงโครงสร้างหรือขั้นตอนการทำงานในภาพรวม", isCorrect: true, rationale: "เฉลย: ก. Block Diagram แสดงบล็อกองค์ประกอบหลักและการเชื่อมโยงในภาพรวม" },
+                            { text: "ข. จัดเก็บข้อมูลในฐานข้อมูล", isCorrect: false, rationale: "เป็นหน้าที่ของ DBMS" },
+                            { text: "ค. เขียนโปรแกรม", isCorrect: false, rationale: "เป็นงาน Coding" },
+                            { text: "ง. ตรวจสอบไวรัส", isCorrect: false, rationale: "เป็นหน้าที่ของโปรแกรม Antivirus" }
+                        ]
+                    },
+                    {
+                        question: "15. ข้อใดจัดเป็นแบบจำลองเชิงตรรกะ?",
+                        options: [
+                            { text: "ก. Data Flow Diagram", isCorrect: true, rationale: "เฉลย: ก. DFD เป็นแบบจำลองเชิงตรรกะ (Logical Model)" },
+                            { text: "ข. Server", isCorrect: false, rationale: "เป็น Physical Hardware" },
+                            { text: "ค. Hard Disk", isCorrect: false, rationale: "เป็น Physical Hardware" },
+                            { text: "ง. Network Device", isCorrect: false, rationale: "เป็น Physical Hardware" }
+                        ]
+                    },
+                    {
+                        question: "16. Flowchart คืออะไร?",
+                        options: [
+                            { text: "ก. ตารางฐานข้อมูล", isCorrect: false, rationale: "ฐานข้อมูลจัดเก็บข้อมูลในรูปแบบตาราง" },
+                            { text: "ข. แผนภาพที่ใช้แสดงลำดับขั้นตอนการทำงาน", isCorrect: true, rationale: "เฉลย: ข. ผังงาน (Flowchart) ใช้สัญลักษณ์แสดงลำดับขั้นตอนตรรกะการทำงาน" },
+                            { text: "ค. โปรแกรมคอมพิวเตอร์", isCorrect: false, rationale: "ไม่ใช่ชุดคำสั่งภาษาคอมพิวเตอร์" },
+                            { text: "ง. ระบบปฏิบัติการ", isCorrect: false, rationale: "เช่น Windows, Linux ไม่ใช่ Flowchart" }
+                        ]
+                    },
+                    {
+                        question: "17. ข้อใดเป็นประเภทของ Flowchart?",
+                        options: [
+                            { text: "ก. System Flowchart", isCorrect: true, rationale: "เฉลย: ก. System Flowchart (ผังงานระบบ) เป็นประเภทหลักของ Flowchart ร่วมกับ Program Flowchart" },
+                            { text: "ข. Database Flowchart", isCorrect: false, rationale: "ไม่ใช่ชื่อประเภทมาตรฐาน" },
+                            { text: "ค. Hardware Flowchart", isCorrect: false, rationale: "ไม่ใช่ชื่อประเภทมาตรฐาน" },
+                            { text: "ง. Internet Flowchart", isCorrect: false, rationale: "ไม่ใช่ชื่อประเภทมาตรฐาน" }
+                        ]
+                    },
+                    {
+                        question: "18. Program Flowchart ใช้แสดงอะไร?",
+                        options: [
+                            { text: "ก. โครงสร้างองค์กร", isCorrect: false, rationale: "ใช้ Organization Chart แสดง" },
+                            { text: "ข. ขั้นตอนการทำงานของโปรแกรม", isCorrect: true, rationale: "เฉลย: ข. Program Flowchart แสดงลำดับคำสั่งตรรกะภายในโปรแกรมอย่างละเอียด" },
+                            { text: "ค. โครงสร้างเครือข่าย", isCorrect: false, rationale: "ใช้ Network Diagram แสดง" },
+                            { text: "ง. รายชื่อพนักงาน", isCorrect: false, rationale: "ไม่เกี่ยวข้องกัน" }
+                        ]
+                    },
+                    {
+                        question: "19. ข้อใดเป็นประโยชน์ของ Flowchart?",
+                        options: [
+                            { text: "ก. ช่วยให้เข้าใจลำดับการทำงานได้ง่าย", isCorrect: true, rationale: "เฉลย: ก. ผังงานช่วยแปลงตรรกะซับซ้อนให้เห็นเป็นภาพ สื่อความหมายและเข้าใจได้ง่าย" },
+                            { text: "ข. ทำให้ไม่ต้องทดสอบระบบ", isCorrect: false, rationale: "ยังคงจำเป็นต้องทดสอบระบบเสมอ" },
+                            { text: "ค. ทำให้ไม่ต้องเขียนโปรแกรม", isCorrect: false, rationale: "ยังคงต้องเขียนโปรแกรมตาม Flowchart" },
+                            { text: "ง. เพิ่มพื้นที่จัดเก็บข้อมูล", isCorrect: false, rationale: "ไม่เกี่ยวกับพื้นที่จัดเก็บข้อมูล" }
+                        ]
+                    },
+                    {
+                        question: "20. หากต้องตรวจสอบว่า “คะแนน ≥ 50 หรือไม่” แล้วแยกเป็น “ผ่าน” และ “ไม่ผ่าน” ควรใช้โครงสร้างใด?",
+                        options: [
+                            { text: "ก. Sequence", isCorrect: false, rationale: "เป็นโครงสร้างตามลำดับเส้นตรง" },
+                            { text: "ข. Selection", isCorrect: true, rationale: "เฉลย: ข. โครงสร้างแบบเงื่อนไข/การเลือก (Selection/Decision) ใช้ตรวจสอบเงื่อนไขแล้วแยกทำตามทางเลือก" },
+                            { text: "ค. Storage", isCorrect: false, rationale: "ไม่ใช่ชื่อโครงสร้างผังงาน" },
+                            { text: "ง. Input", isCorrect: false, rationale: "เป็นการรับข้อมูล ไม่ใช่การเช็คเงื่อนไข" }
+                        ]
+                    },
+                    {
+                        question: "21. DFD ย่อมาจากอะไร?",
+                        options: [
+                            { text: "ก. Data File Design", isCorrect: false, rationale: "ชื่อย่อไม่ถูกต้อง" },
+                            { text: "ข. Data Flow Diagram", isCorrect: true, rationale: "เฉลย: ข. DFD ย่อมาจาก Data Flow Diagram (แผนภาพกระแสข้อมูล)" },
+                            { text: "ค. Database Flow Design", isCorrect: false, rationale: "ชื่อย่อไม่ถูกต้อง" },
+                            { text: "ง. Data Format Diagram", isCorrect: false, rationale: "ชื่อย่อไม่ถูกต้อง" }
+                        ]
+                    },
+                    {
+                        question: "22. ข้อใดเป็นองค์ประกอบของ DFD?",
+                        options: [
+                            { text: "ก. External Entity", isCorrect: false, rationale: "เป็นองค์ประกอบหนึ่งแต่มีข้ออื่นถูกด้วย" },
+                            { text: "ข. Data Flow", isCorrect: false, rationale: "เป็นองค์ประกอบหนึ่งแต่มีข้ออื่นถูกด้วย" },
+                            { text: "ค. Process", isCorrect: false, rationale: "เป็นองค์ประกอบหนึ่งแต่มีข้ออื่นถูกด้วย" },
+                            { text: "ง. ถูกทุกข้อ", isCorrect: true, rationale: "เฉลย: ง. องค์ประกอบหลักของ DFD ได้แก่ External Entity, Process, Data Flow และ Data Store" }
+                        ]
+                    },
+                    {
+                        question: "23. Context Diagram มีหน้าที่แสดงอะไร?",
+                        options: [
+                            { text: "ก. รายละเอียดของโปรแกรม", isCorrect: false, rationale: "เป็นการแสดงผลระดับล่างสุด" },
+                            { text: "ข. ภาพรวมของระบบและการติดต่อกับสิ่งภายนอก", isCorrect: true, rationale: "เฉลย: ข. Context Diagram เป็น DFD ระดับสูงสุดที่แสดงขอบเขตระบบและ External Entities" },
+                            { text: "ค. โครงสร้างฐานข้อมูลทั้งหมด", isCorrect: false, rationale: "เป็นหน้าที่ของ ERD" },
+                            { text: "ง. Source Code", isCorrect: false, rationale: "ไม่เกี่ยวข้องกัน" }
+                        ]
+                    },
+                    {
+                        question: "24. สิ่งใดไม่แสดงใน Context Diagram?",
+                        options: [
+                            { text: "ก. External Entity", isCorrect: false, rationale: "แสดงใน Context Diagram" },
+                            { text: "ข. Data Flow", isCorrect: false, rationale: "แสดงใน Context Diagram" },
+                            { text: "ค. Data Store", isCorrect: true, rationale: "เฉลย: ค. Context Diagram จะไม่แสดง Data Store (แหล่งจัดเก็บข้อมูล) ภายในระบบ" },
+                            { text: "ง. ระบบโดยรวม", isCorrect: false, rationale: "แสดงใน Context Diagram เป็นวงกลมกลางภาพ" }
+                        ]
+                    },
+                    {
+                        question: "25. ในระบบห้องสมุด “นักศึกษา” ที่ส่งข้อมูลการยืมหนังสือเข้าสู่ระบบ จัดเป็นอะไร?",
+                        options: [
+                            { text: "ก. Data Store", isCorrect: false, rationale: "เป็นแหล่งเก็บข้อมูล เช่น แฟ้มยืม-คืน" },
+                            { text: "ข. Process", isCorrect: false, rationale: "เป็นขั้นตอนประมวลผล เช่น บันทึกการยืม" },
+                            { text: "ค. External Entity", isCorrect: true, rationale: "เฉลย: ค. นักศึกษาเป็นบุคคลภายนอกระบบที่เป็นผู้รับหรือส่งข้อมูลเข้าสู่งาน" },
+                            { text: "ง. Data Flow", isCorrect: false, rationale: "เป็นเส้นกระแสข้อมูล เช่น ข้อมูลการยืม" }
+                        ]
+                    },
+                    {
+                        question: "26. ER Model ใช้สำหรับอะไร?",
+                        options: [
+                            { text: "ก. ออกแบบความสัมพันธ์ของข้อมูล", isCorrect: true, rationale: "เฉลย: ก. ER Model (Entity-Relationship Model) ใช้ในการออกแบบโครงสร้างและความสัมพันธ์ของฐานข้อมูล" },
+                            { text: "ข. เขียนโปรแกรม", isCorrect: false, rationale: "เป็นงานส่วน Coding" },
+                            { text: "ค. ออกแบบเครือข่าย", isCorrect: false, rationale: "เป็นงานส่วน Network Design" },
+                            { text: "ง. ทดสอบฮาร์ดแวร์", isCorrect: false, rationale: "เป็นงานส่วน Hardware Testing" }
+                        ]
+                    },
+                    {
+                        question: "27. องค์ประกอบหลักของ ER Model คืออะไร?",
+                        options: [
+                            { text: "ก. Entity, Attribute และ Relationship", isCorrect: true, rationale: "เฉลย: ก. องค์ประกอบ 3 ประการหลักคือ สิ่งที่สนใจ (Entity), คุณลักษณะ (Attribute) และความสัมพันธ์ (Relationship)" },
+                            { text: "ข. CPU, RAM และ ROM", isCorrect: false, rationale: "เป็นองค์ประกอบฮาร์ดแวร์" },
+                            { text: "ค. HTML, CSS และ JavaScript", isCorrect: false, rationale: "เป็นเทคโนโลยีพัฒนาเว็บ" },
+                            { text: "ง. Keyboard, Mouse และ Monitor", isCorrect: false, rationale: "เป็นอุปกรณ์อินพุตเอาต์พุต" }
+                        ]
+                    },
+                    {
+                        question: "28. Attribute หมายถึงอะไร?",
+                        options: [
+                            { text: "ก. คุณลักษณะของ Entity", isCorrect: true, rationale: "เฉลย: ก. Attribute คือคุณลักษณะหรือรายละเอียดที่ใช้อธิบาย Entity" },
+                            { text: "ข. ความสัมพันธ์ระหว่าง Entity", isCorrect: false, rationale: "เรียกว่า Relationship" },
+                            { text: "ค. โปรแกรมประยุกต์", isCorrect: false, rationale: "เรียกว่า Application Software" },
+                            { text: "ง. ผู้ใช้งานระบบ", isCorrect: false, rationale: "เรียกว่า User" }
+                        ]
+                    },
+                    {
+                        question: "29. Primary Key มีหน้าที่อะไร?",
+                        options: [
+                            { text: "ก. ระบุเอกลักษณ์ของข้อมูล", isCorrect: true, rationale: "เฉลย: ก. Primary Key (คีย์หลัก) ทำหน้าที่ระบุความมีเอกลักษณ์ ไม่ซ้ำซ้อนกันของแต่ละแถวข้อมูล" },
+                            { text: "ข. เพิ่มความเร็วอินเทอร์เน็ต", isCorrect: false, rationale: "ไม่เกี่ยวข้องกัน" },
+                            { text: "ค. ควบคุมระบบปฏิบัติการ", isCorrect: false, rationale: "ไม่เกี่ยวข้องกัน" },
+                            { text: "ง. กำหนดสีของข้อมูล", isCorrect: false, rationale: "ไม่เกี่ยวข้องกัน" }
+                        ]
+                    },
+                    {
+                        question: "30. Partial Key มีความสัมพันธ์กับ Entity ประเภทใด?",
+                        options: [
+                            { text: "ก. Strong Entity", isCorrect: false, rationale: "Strong Entity จะมี Primary Key สมบูรณ์ในตัวเอง" },
+                            { text: "ข. Weak Entity", isCorrect: true, rationale: "เฉลย: ข. Partial Key (คีย์บางส่วน) ใช้ระบุความแตกต่างใน Weak Entity ร่วมกับ Primary Key ของ Strong Entity" },
+                            { text: "ค. External Entity", isCorrect: false, rationale: "ใช้ใน DFD ไม่ใช่ ERD" },
+                            { text: "ง. Physical Entity", isCorrect: false, rationale: "ไม่ใช่คำศัพท์ในสถาปัตยกรรม ERD" }
+                        ]
+                    },
+                    {
+                        question: "31. จุดประสงค์ของการออกแบบระบบคืออะไร?",
+                        options: [
+                            { text: "ก. นำผลการวิเคราะห์มาออกแบบระบบที่สามารถนำไปพัฒนาได้", isCorrect: true, rationale: "เฉลย: ก. การออกแบบระบบเป็นการแปลงผลการวิเคราะห์ (Requirements) ให้กลายเป็นแบบพิมพ์เขียวเพื่อสร้างระบบจริง" },
+                            { text: "ข. ค้นหาปัญหาเพียงอย่างเดียว", isCorrect: false, rationale: "เป็นหน้าที่ของขั้นตอน System Analysis" },
+                            { text: "ค. ยกเลิกระบบเดิม", isCorrect: false, rationale: "ไม่ใช่เป้าหมายหลักในการออกแบบ" },
+                            { text: "ง. ฝึกอบรมผู้ใช้เท่านั้น", isCorrect: false, rationale: "เป็นกิจกรรมในขั้นตอน Implementation" }
+                        ]
+                    },
+                    {
+                        question: "32. ข้อใดเป็นแนวทางในการพัฒนาระบบ?",
+                        options: [
+                            { text: "ก. In-House Development", isCorrect: false, rationale: "เป็นแนวทางหนึ่งแต่มีข้ออื่นถูกด้วย" },
+                            { text: "ข. Package Software", isCorrect: false, rationale: "เป็นแนวทางหนึ่งแต่มีข้ออื่นถูกด้วย" },
+                            { text: "ค. Outsourcing", isCorrect: false, rationale: "เป็นแนวทางหนึ่งแต่มีข้ออื่นถูกด้วย" },
+                            { text: "ง. ถูกทุกข้อ", isCorrect: true, rationale: "เฉลย: ง. แนวทางจัดหาระบบทำได้ทั้ง พัฒนาเอง (In-House), ซื้อสำเร็จรูป (Package) และว่าจ้างภายนอก (Outsource)" }
+                        ]
+                    },
+                    {
+                        question: "33. ข้อใดเป็นข้อดีของ In-House Development?",
+                        options: [
+                            { text: "ก. สามารถตอบสนองความต้องการเฉพาะขององค์กรได้", isCorrect: true, rationale: "เฉลย: ก. การพัฒนาเองภายในทำให้ได้ซอฟต์แวร์ที่ตรงตามเงื่อนไขธุรกิจและวัฒนธรรมองค์กรดีที่สุด" },
+                            { text: "ข. ไม่ต้องใช้บุคลากร IT", isCorrect: false, rationale: "ต้องอาศัยทีมงานไอทีภายในอย่างยิ่ง" },
+                            { text: "ค. ไม่ต้องใช้เวลาในการพัฒนา", isCorrect: false, rationale: "ต้องใช้เวลาในการพัฒนาค่อนข้างสูง" },
+                            { text: "ง. ไม่ต้องบำรุงรักษา", isCorrect: false, rationale: "ยังคงต้องทำการบำรุงรักษาอย่างต่อเนื่อง" }
+                        ]
+                    },
+                    {
+                        question: "34. หากองค์กรไม่มีบุคลากร IT ที่มีความเชี่ยวชาญ อาจพิจารณาแนวทางใด?",
+                        options: [
+                            { text: "ก. Outsourcing", isCorrect: true, rationale: "เฉลย: ก. การ Outsource ช่วยแก้ปัญหาเมื่อองค์กรขาดแคลนบุคลากรหรือความเชี่ยวชาญทางไอที" },
+                            { text: "ข. ไม่พัฒนาระบบ", isCorrect: false, rationale: "ทำให้สูญเสียโอกาสในการแข่งขันทางธุรกิจ" },
+                            { text: "ค. ยกเลิกระบบทั้งหมด", isCorrect: false, rationale: "ส่งผลเสียต่อการทำงานขององค์กร" },
+                            { text: "ง. เขียนโปรแกรมโดยผู้ใช้ทุกคน", isCorrect: false, rationale: "ผู้ใช้ทั่วไปไม่จำเป็นต้องมีความเชี่ยวชาญด้านเขียนโค้ด" }
+                        ]
+                    },
+                    {
+                        question: "35. Architecture Design ควรพิจารณาองค์ประกอบใด?",
+                        options: [
+                            { text: "ก. Hardware, Software, Network และ Security", isCorrect: true, rationale: "เฉลย: ก. การออกแบบสถาปัตยกรรมต้องครอบคลุมฮาร์ดแวร์ ซอฟต์แวร์ เครือข่าย และความปลอดภัย" },
+                            { text: "ข. เสื้อผ้าและอาหาร", isCorrect: false, rationale: "ไม่เกี่ยวข้องกับสถาปัตยกรรมระบบไอที" },
+                            { text: "ค. การตลาดเพียงอย่างเดียว", isCorrect: false, rationale: "ไม่ครอบคลุมโครงสร้างไอที" },
+                            { text: "ง. จำนวนโต๊ะในสำนักงาน", isCorrect: false, rationale: "ไม่เกี่ยวข้องโดยตรง" }
+                        ]
+                    },
+                    {
+                        question: "36. ข้อใดเป็นกิจกรรมในการพัฒนาและนำระบบไปใช้?",
+                        options: [
+                            { text: "ก. Coding", isCorrect: false, rationale: "เป็นกิจกรรมหนึ่งแต่มีข้ออื่นถูกด้วย" },
+                            { text: "ข. Testing", isCorrect: false, rationale: "เป็นกิจกรรมหนึ่งแต่มีข้ออื่นถูกด้วย" },
+                            { text: "ค. Training", isCorrect: false, rationale: "เป็นกิจกรรมหนึ่งแต่มีข้ออื่นถูกด้วย" },
+                            { text: "ง. ถูกทุกข้อ", isCorrect: true, rationale: "เฉลย: ง. ขั้นตอน Implementation ครอบคลุมการเขียนโปรแกรม (Coding), การทดสอบ (Testing) และการอบรม (Training)" }
+                        ]
+                    },
+                    {
+                        question: "37. Acceptance Testing มีจุดประสงค์เพื่ออะไร?",
+                        options: [
+                            { text: "ก. ให้ผู้ใช้ยืนยันว่าระบบตรงตามความต้องการ", isCorrect: true, rationale: "เฉลย: ก. Acceptance Testing (UAT) ทำขึ้นเพื่อให้ผู้ใช้งานจริงทดสอบยืนยันและยอมรับระบบก่อน Go-Live" },
+                            { text: "ข. ตรวจสอบความเร็วอินเทอร์เน็ต", isCorrect: false, rationale: "ไม่ใช่วัตถุประสงค์หลัก" },
+                            { text: "ค. ตรวจสอบฮาร์ดแวร์", isCorrect: false, rationale: "เป็น Hardware Testing" },
+                            { text: "ง. ตรวจสอบเงินเดือน", isCorrect: false, rationale: "ไม่เกี่ยวข้องกัน" }
+                        ]
+                    },
+                    {
+                        question: "38. Direct Installation มีลักษณะอย่างไร?",
+                        options: [
+                            { text: "ก. ใช้ระบบเก่าและใหม่พร้อมกัน", isCorrect: false, rationale: "นั่นคือ Parallel Installation" },
+                            { text: "ข. เปลี่ยนไปใช้ระบบใหม่ทันที", isCorrect: true, rationale: "เฉลย: ข. Direct Installation คือการหยุดใช้ระบบเก่าและเปลี่ยนมาเปิดใช้ระบบใหม่ทันทีในวันที่กำหนด" },
+                            { text: "ค. ทดลองใช้ระบบใหม่บางส่วน", isCorrect: false, rationale: "นั่นคือ Pilot Project หรือ Phased" },
+                            { text: "ง. ยกเลิกการพัฒนาระบบใหม่", isCorrect: false, rationale: "ไม่ถูกต้อง" }
+                        ]
+                    },
+                    {
+                        question: "39. เพราะเหตุใด Direct Installation จึงมีความเสี่ยงสูง?",
+                        options: [
+                            { text: "ก. ไม่มีระบบเดิมสำรองเมื่อเกิดปัญหา", isCorrect: true, rationale: "เฉลย: ก. หากระบบใหม่เกิดความผิดพลาดขัดข้อง จะไม่มีระบบเดิมรองรับการทำงาน ทำให้ธุรกิจหยุดชะงัก" },
+                            { text: "ข. ใช้งบประมาณน้อยเกินไปเสมอ", isCorrect: false, rationale: "ไม่ใช่ปัจจัยสร้างความเสี่ยงหลัก" },
+                            { text: "ค. ใช้เวลาทดสอบนานที่สุด", isCorrect: false, rationale: "มักใช้เวลาน้อยที่สุด" },
+                            { text: "ง. ต้องใช้คอมพิวเตอร์จำนวนมากเสมอ", isCorrect: false, rationale: "ไม่เกี่ยวข้องกัน" }
+                        ]
+                    },
+                    {
+                        question: "40. Corrective Maintenance หมายถึงอะไร?",
+                        options: [
+                            { text: "ก. เพิ่มคุณสมบัติใหม่", isCorrect: false, rationale: "นั่นคือ Perfective Maintenance" },
+                            { text: "ข. ปรับระบบให้เข้ากับสภาพแวดล้อมใหม่", isCorrect: false, rationale: "นั่นคือ Adaptive Maintenance" },
+                            { text: "ค. แก้ไขข้อผิดพลาดของระบบ", isCorrect: true, rationale: "เฉลย: ค. Corrective Maintenance คือการซ่อมบำรุงแก้ไขข้อผิดพลาดหรือบั๊กที่พบในระบบ" },
+                            { text: "ง. ป้องกันปัญหาที่อาจเกิดขึ้น", isCorrect: false, rationale: "นั่นคือ Preventive Maintenance" }
+                        ]
+                    }
+                ]
             }
-        ];
+        };
 
+        // Application State Variables
+        let currentSet = 1;
         let currentQuestion = 0;
         let score = 0;
-        let userAnswers = new Array(quizData.length).fill(null);
+        let userAnswers = [];
 
-        function startQuiz() {
+        // App Initialization
+        function initApp() {
+            showScreen('welcome-screen');
+        }
+
+        function showScreen(screenId) {
             document.getElementById('welcome-screen').classList.add('hidden');
-            document.getElementById('question-screen').classList.remove('hidden');
+            document.getElementById('question-screen').classList.add('hidden');
+            document.getElementById('result-screen').classList.add('hidden');
+
+            document.getElementById(screenId).classList.remove('hidden');
+        }
+
+        function selectSet(setNum) {
+            currentSet = setNum;
+            currentQuestion = 0;
+            score = 0;
+            const totalQuestions = quizSets[currentSet].questions.length;
+            userAnswers = new Array(totalQuestions).fill(null);
+
+            document.getElementById('set-indicator').innerText = `ชุดที่ ${currentSet}`;
+            document.getElementById('set-indicator').className = currentSet === 1 
+                ? "bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full font-bold"
+                : "bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full font-bold";
+
+            showScreen('question-screen');
             loadQuestion();
         }
 
         function loadQuestion() {
-            const q = quizData[currentQuestion];
-            const total = quizData.length;
-            
-            // Update progress
-            document.getElementById('progress-indicator').innerText = `ข้อที่ ${currentQuestion + 1} / ${total}`;
-            document.getElementById('score-counter').innerText = `คะแนนสะสม: ${score}`;
+            const set = quizSets[currentSet];
+            const q = set.questions[currentQuestion];
+            const total = set.questions.length;
+
+            // Update Progress & Score
+            document.getElementById('progress-text').innerText = `ข้อ ${currentQuestion + 1} / ${total}`;
+            document.getElementById('score-text').innerText = `คะแนน: ${score}`;
             
             const progressPercent = ((currentQuestion + 1) / total) * 100;
-            document.getElementById('progress-bar').style.width = `${progressPercent}%`;
+            const progressBar = document.getElementById('progress-bar');
+            progressBar.style.width = `${progressPercent}%`;
+            progressBar.className = currentSet === 1 
+                ? "bg-indigo-600 h-full transition-all duration-300"
+                : "bg-emerald-600 h-full transition-all duration-300";
 
-            // Question Text
             document.getElementById('question-text').innerText = q.question;
 
+            // Render Options
             const optionsContainer = document.getElementById('options-container');
             optionsContainer.innerHTML = '';
 
-            const answeredIndex = userAnswers[currentQuestion];
-            const isAnswered = answeredIndex !== null;
+            const answered = userAnswers[currentQuestion] !== null;
+            const selectedIdx = userAnswers[currentQuestion];
 
-            // Render options
             q.options.forEach((opt, index) => {
-                const button = document.createElement('button');
-                button.disabled = isAnswered;
-                
-                let btnStyle = "w-full text-left p-4 rounded-xl border-2 transition-all duration-200 flex items-start space-x-3 text-sm sm:text-base font-medium leading-relaxed ";
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = getOptionStyle(index, answered, selectedIdx, opt.isCorrect);
+                btn.disabled = answered;
+                btn.onclick = () => handleAnswer(index);
 
-                if (!isAnswered) {
-                    btnStyle += "border-slate-200 bg-white hover:border-indigo-400 hover:bg-slate-50 text-slate-700 shadow-sm";
-                } else {
-                    // Show correct answer green
-                    if (opt.isCorrect) {
-                        btnStyle += "border-emerald-500 bg-emerald-50 text-emerald-900 font-semibold shadow-sm";
-                    } 
-                    // Show incorrect user choice red
-                    else if (index === answeredIndex && !opt.isCorrect) {
-                        btnStyle += "border-rose-500 bg-rose-50 text-rose-900 font-semibold shadow-sm";
-                    } 
-                    // Other options unselected
-                    else {
-                        btnStyle += "border-slate-100 bg-slate-50 text-slate-400 opacity-60";
-                    }
-                }
-
-                button.className = btnStyle;
-                button.onclick = () => selectOption(index);
-
-                // Option content & icons
                 let badge = '';
-                if (isAnswered) {
+                if (answered) {
                     if (opt.isCorrect) {
-                        badge = `<span class="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xs font-bold mt-0.5">✓</span>`;
-                    } else if (index === answeredIndex && !opt.isCorrect) {
-                        badge = `<span class="flex-shrink-0 w-6 h-6 rounded-full bg-rose-500 text-white flex items-center justify-center text-xs font-bold mt-0.5">✕</span>`;
-                    } else {
-                        badge = `<span class="flex-shrink-0 w-6 h-6 rounded-full border border-slate-300 text-slate-400 flex items-center justify-center text-xs mt-0.5">${String.fromCharCode(65 + index)}</span>`;
+                        badge = `<span class="bg-emerald-600 text-white text-xs px-2 py-0.5 rounded font-bold ml-auto">✓ คำตอบที่ถูกต้อง</span>`;
+                    } else if (index === selectedIdx && !opt.isCorrect) {
+                        badge = `<span class="bg-rose-600 text-white text-xs px-2 py-0.5 rounded font-bold ml-auto">✕ คุณตอบข้อนี้</span>`;
                     }
-                } else {
-                    badge = `<span class="flex-shrink-0 w-6 h-6 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center text-xs font-bold mt-0.5">${String.fromCharCode(65 + index)}</span>`;
                 }
 
-                button.innerHTML = `
+                btn.innerHTML = `
+                    <span class="text-left leading-relaxed flex-1">${opt.text}</span>
                     ${badge}
-                    <span class="flex-1">${opt.text}</span>
                 `;
-                optionsContainer.appendChild(button);
+                optionsContainer.appendChild(btn);
             });
 
             // Handle Rationale Box
             const rationaleBox = document.getElementById('rationale-box');
-            if (isAnswered) {
-                const isCorrectChoice = q.options[answeredIndex].isCorrect;
-                rationaleBox.classList.remove('hidden');
+            if (answered) {
+                const chosenOpt = q.options[selectedIdx];
+                const isCorrect = chosenOpt.isCorrect;
 
-                if (isCorrectChoice) {
-                    rationaleBox.className = "p-4 sm:p-5 rounded-xl border border-emerald-200 bg-emerald-50/70 text-emerald-900 mb-6";
+                rationaleBox.classList.remove('hidden');
+                if (isCorrect) {
+                    rationaleBox.className = "mb-6 p-4 rounded-xl border bg-emerald-50 border-emerald-200 text-emerald-900 leading-relaxed text-sm";
                     document.getElementById('rationale-title').innerHTML = `
                         <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        <span class="text-emerald-800">ตอบถูกต้อง!</span>
+                        <span>ถูกต้อง! (+1 คะแนน)</span>
                     `;
                 } else {
-                    rationaleBox.className = "p-4 sm:p-5 rounded-xl border border-rose-200 bg-rose-50/70 text-rose-900 mb-6";
+                    rationaleBox.className = "mb-6 p-4 rounded-xl border bg-rose-50 border-rose-200 text-rose-900 leading-relaxed text-sm";
                     document.getElementById('rationale-title').innerHTML = `
                         <svg class="w-5 h-5 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        <span class="text-rose-800">ตอบยังไม่ถูกต้อง</span>
+                        <span>ยังไม่ถูกต้อง</span>
                     `;
                 }
-
-                document.getElementById('rationale-text').innerText = q.rationale;
+                document.getElementById('rationale-text').innerText = chosenOpt.rationale;
             } else {
                 rationaleBox.classList.add('hidden');
             }
 
-            // Navigation Buttons
+            // Buttons State
             document.getElementById('prev-btn').classList.toggle('hidden', currentQuestion === 0);
+            
             const nextBtn = document.getElementById('next-btn');
-            nextBtn.innerText = currentQuestion === quizData.length - 1 ? 'ดูสรุปผลการทดสอบ' : 'ข้อถัดไป';
+            if (answered) {
+                nextBtn.disabled = false;
+                nextBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+            } else {
+                nextBtn.disabled = true;
+                nextBtn.classList.add('opacity-50', 'cursor-not-allowed');
+            }
+
+            nextBtn.innerText = currentQuestion === total - 1 ? 'ดูสรุปผลคะแนน' : 'ข้อถัดไป';
         }
 
-        function selectOption(index) {
-            if (userAnswers[currentQuestion] !== null) return; // Prevent re-answer
+        function getOptionStyle(index, answered, selectedIdx, isCorrect) {
+            const base = "w-full p-4 rounded-xl border-2 text-left font-medium text-sm sm:text-base flex items-center justify-between transition duration-200 ";
+            
+            if (!answered) {
+                return base + "border-slate-200 bg-white hover:border-indigo-400 hover:bg-slate-50 text-slate-700 cursor-pointer shadow-sm";
+            }
+
+            if (isCorrect) {
+                return base + "border-emerald-500 bg-emerald-50 text-emerald-900 font-semibold shadow-sm";
+            }
+
+            if (index === selectedIdx && !isCorrect) {
+                return base + "border-rose-500 bg-rose-50 text-rose-900 font-semibold shadow-sm";
+            }
+
+            return base + "border-slate-100 bg-slate-50 text-slate-400 opacity-60";
+        }
+
+        function handleAnswer(index) {
+            if (userAnswers[currentQuestion] !== null) return;
 
             userAnswers[currentQuestion] = index;
 
-            // Update Score
-            if (quizData[currentQuestion].options[index].isCorrect) {
+            const q = quizSets[currentSet].questions[currentQuestion];
+            if (q.options[index].isCorrect) {
                 score++;
             }
 
@@ -640,12 +1014,8 @@
         }
 
         function nextQuestion() {
-            if (userAnswers[currentQuestion] === null) {
-                alert('กรุณาเลือกคำตอบก่อนไปยังข้อถัดไป');
-                return;
-            }
-
-            if (currentQuestion < quizData.length - 1) {
+            const total = quizSets[currentSet].questions.length;
+            if (currentQuestion < total - 1) {
                 currentQuestion++;
                 loadQuestion();
             } else {
@@ -661,36 +1031,52 @@
         }
 
         function showResult() {
-            document.getElementById('question-screen').classList.add('hidden');
-            document.getElementById('result-screen').classList.remove('hidden');
-
-            const total = quizData.length;
+            showScreen('result-screen');
+            const total = quizSets[currentSet].questions.length;
             const percentage = Math.round((score / total) * 100);
 
-            document.getElementById('final-score').innerText = `${score}/${total}`;
-            document.getElementById('score-percent').innerText = `${percentage}%`;
+            document.getElementById('result-subtitle').innerText = `แบบทดสอบชุดที่ ${currentSet}: ${quizSets[currentSet].title}`;
+            document.getElementById('final-score').innerText = `${score} / ${total}`;
+            document.getElementById('final-percentage').innerText = `คิดเป็น ${percentage}%`;
 
-            const evalBox = document.getElementById('result-evaluation');
-
+            let msg = '';
             if (percentage >= 80) {
-                evalBox.className = "p-4 rounded-xl mb-8 text-sm font-medium leading-relaxed max-w-md mx-auto bg-emerald-50 text-emerald-800 border border-emerald-200";
-                evalBox.innerHTML = "🏆 <strong>ระดับดีเยี่ยม!</strong> คุณมีความรู้และความเข้าใจในกระบวนการวิเคราะห์และออกแบบระบบ (SA&D) อยู่ในเกณฑ์สูงมาก พร้อมสำหรับนำไปประยุกต์ใช้งานจริงและการสอบวัดผล";
+                msg = '🎉 ยอดเยี่ยมมาก! คุณมีความเข้าใจในเรื่องการวิเคราะห์และออกแบบระบบในระดับสูงมาก พร้อมสำหรับการสอบแน่นอน!';
             } else if (percentage >= 60) {
-                evalBox.className = "p-4 rounded-xl mb-8 text-sm font-medium leading-relaxed max-w-md mx-auto bg-indigo-50 text-indigo-800 border border-indigo-200";
-                evalBox.innerHTML = "👍 <strong>ระดับดี!</strong> คุณมีความเข้าใจหลักการสำคัญเป็นอย่างดี สามารถทบทวนเพิ่มเติมในข้อที่ตอบผิดเพื่อเพิ่มความแม่นยำได้ครับ";
+                msg = '👍 ทำได้ดีครับ! คุณผ่านเกณฑ์ทดสอบแล้ว ลองอ่านทบทวนคำอธิบายในข้อที่ตอบผิดเพิ่มเติมเพื่อความแม่นยำเต็มที่ครับ';
             } else {
-                      evalBox.className = "p-4 rounded-xl mb-8 text-sm font-medium leading-relaxed max-w-md mx-auto bg-amber-50 text-amber-800 border border-amber-200";
-                evalBox.innerHTML = "📚 <strong>ระดับควรปรับปรุง</strong> แนะนำให้ลองอ่านคำอธิบายเฉลยในข้อที่ตอบผิด แล้วกลับมาทำแบบทดสอบซ้ำอีกครั้งเพื่อสร้างความคุ้นเคยครับ";
+                msg = '📚 พยายามอีกนิดนะครับ! แนะนำให้ทบทวนเนื้อหาบทเรียนและลองกลับมาทำแบบทดสอบซ้ำอีกครั้งครับ';
+            }
+            document.getElementById('result-message').innerText = msg;
+
+            // Setup Next Set Button
+            const nextSetBtn = document.getElementById('next-set-btn');
+            if (currentSet === 1) {
+                nextSetBtn.innerText = 'ไปทำแบบทดสอบชุดที่ 2 →';
+                nextSetBtn.onclick = () => selectSet(2);
+                nextSetBtn.classList.remove('hidden');
+            } else {
+                nextSetBtn.innerText = '← กลับไปทำแบบทดสอบชุดที่ 1';
+                nextSetBtn.onclick = () => selectSet(1);
+                nextSetBtn.classList.remove('hidden');
             }
         }
 
-        function restartQuiz() {
-            currentQuestion = 0;
-            score = 0;
-            userAnswers = new Array(quizData.length).fill(null);
-            document.getElementById('result-screen').classList.add('hidden');
-            document.getElementById('welcome-screen').classList.remove('hidden');
+        function restartCurrentSet() {
+            selectSet(currentSet);
         }
+
+        function switchSet() {
+            const nextSet = currentSet === 1 ? 2 : 1;
+            selectSet(nextSet);
+        }
+
+        function goHome() {
+            showScreen('welcome-screen');
+        }
+
+        // Initialize on load
+        window.onload = initApp;
     </script>
 </body>
 </html>
